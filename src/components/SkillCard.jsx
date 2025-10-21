@@ -1,0 +1,34 @@
+import { Star } from "lucide-react";
+
+const SkillCard = ({ skill }) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-1 overflow-hidden">
+      <img
+        src={skill.image}
+        alt={skill.skillName}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-5 flex flex-col gap-8 justify-between">
+        <div>
+          <h3 className="text-xl font-semibold mb-1">{skill.skillName}</h3>
+          <p className="text-gray-500 text-sm mb-2">{skill.providerName}</p>
+          <div className="flex justify-between">
+            <p className="text-gray-800 font-medium mb-2">
+              ${skill.price} / session
+            </p>
+            <div className="flex gap-1 items-center mb-2">
+              <Star className="w-4 h-4 text-yellow-400" />
+              <span className="text-gray-700 text-sm">{skill.rating}</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-2 w-fit">
+          <button className="btn btn-primary btn-wide">View Details</button>
+          <button className="btn btn-primary btn-wide">View Details</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SkillCard;

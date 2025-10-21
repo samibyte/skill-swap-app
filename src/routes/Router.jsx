@@ -10,6 +10,11 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: async () => {
+          const res = await fetch("/skillsListing.json");
+          const skillData = await res.json();
+          return { skillData };
+        },
       },
     ],
   },
