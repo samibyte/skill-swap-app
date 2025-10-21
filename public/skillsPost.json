@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn chords, strumming patterns and your first songs.",
+    "image": "https://i.postimg.cc/7Zk1xk9G/guitar.png",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions focused on confidence and fluency for non-native speakers.",
+    "image": "https://i.postimg.cc/fy6wQb1S/english.png",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "React Fundamentals",
+    "providerName": "Rafi Ahmed",
+    "providerEmail": "rafi@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Hands-on React workshop covering components, hooks, router and state management.",
+    "image": "https://i.postimg.cc/3J6wQzZf/react.png",
+    "category": "Programming"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Maya Roy",
+    "providerEmail": "maya@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Gentle yoga classes focused on flexibility, breathing and relaxation techniques.",
+    "image": "https://i.postimg.cc/9Qh1yVw2/yoga.png",
+    "category": "Health"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Basic Photography",
+    "providerName": "Jamal Khan",
+    "providerEmail": "jamal@skillswap.com",
+    "price": 18,
+    "rating": 4.5,
+    "slotsAvailable": 4,
+    "description": "Learn composition, lighting and editing essentials using your phone or DSLR.",
+    "image": "https://i.postimg.cc/Y97Z9rVq/photo.png",
+    "category": "Art"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Spanish Conversation",
+    "providerName": "Lucia Fernandez",
+    "providerEmail": "lucia@skillswap.com",
+    "price": 12,
+    "rating": 4.6,
+    "slotsAvailable": 3,
+    "description": "Practice everyday Spanish with a native speaker to boost speaking confidence.",
+    "image": "https://i.postimg.cc/D0y8Kq7m/spanish.png",
+    "category": "Language"
+  }
+]
