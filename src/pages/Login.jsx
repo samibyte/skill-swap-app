@@ -1,7 +1,7 @@
 import { ArrowLeft, LoaderCircle, Lock, Mail } from "lucide-react";
 import { use, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import AuthContext from "../contexts/AuthContext";
 
@@ -163,6 +163,7 @@ const Login = () => {
             <div className="mt-2 text-right">
               <Link
                 to="/auth/forgot-password"
+                state={{ email: userFormData.email }}
                 className="text-sm text-blue-600 hover:underline"
               >
                 Forgot Password?

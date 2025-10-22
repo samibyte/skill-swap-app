@@ -1,18 +1,22 @@
 import { ArrowLeft, LoaderCircle, Mail } from "lucide-react";
 import { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import logo from "../assets/logo.png";
 import AuthContext from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
+  const location = useLocation();
+  const preFilledEmail = location.state.email;
+
   const { resetPassWithEmail } = use(AuthContext);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(preFilledEmail);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleReset = async (e) => {
     e.preventDefault();
     setError("");
     setMessage("");
@@ -25,10 +29,17 @@ const ForgotPassword = () => {
     try {
       await resetPassWithEmail(email);
       setMessage("If this email is registered, a reset link has been sent.");
+
+      setLoadingText("Opening Gmail");
+      setTimeout(() => {
+        // Redirect to Gmail
+        window.open("https://mail.google.com", "_blank");
+        setLoading(false);
+      }, 2500);
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message || "Something went wrong. Please try again.");
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -46,7 +57,7 @@ const ForgotPassword = () => {
           We'll send you a reset link
         </h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleReset}>
           {/* Email */}
           <div className="mb-6">
             <label
@@ -80,7 +91,10 @@ const ForgotPassword = () => {
             className="flex btn w-full items-center justify-center rounded-lg bg-primary text-white hover:bg-neutral disabled:bg-neutral-300"
           >
             {loading ? (
-              <LoaderCircle className="animate-spin" size={20} />
+              <div className="flex gap-2">
+                <LoaderCircle className="animate-spin" size={20} />
+                <p>{loadingText}</p>
+              </div>
             ) : (
               "Send Reset Link"
             )}
