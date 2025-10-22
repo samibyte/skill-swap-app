@@ -5,6 +5,12 @@ import AuthContext from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+  console.log(user);
+
+  const displayName = user?.displayName;
+  const photo =
+    user?.photoURL ||
+    `https://avatar.iran.liara.run/username?username=${displayName}+`;
 
   return (
     <div className="navbar px-30 bg-base-100 shadow-sm">
@@ -64,16 +70,9 @@ const Navbar = () => {
       <div className="navbar-end flex gap-5">
         {user ? (
           <>
-            <NavLink to="/auth/login">
-              <button className="btn btn-primary">Login</button>
-            </NavLink>
-            <NavLink to="/auth/signup">
-              <button className="btn btn-primary">Signup</button>
-            </NavLink>
-          </>
-        ) : (
-          <>
-            <Link className="btn">Log Out</Link>
+            <Link onClick={() => signOutUser()} className="btn">
+              Log Out
+            </Link>
             <div className="dropdown dropdown-end group relative">
               <div
                 tabIndex={0}
@@ -81,10 +80,7 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar hover:scale-105 transition-transform duration-200"
               >
                 <div className="w-10 rounded-full ring-2 ring-base-300 hover:ring-primary transition-colors duration-200">
-                  <img
-                    alt="User avatar"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  />
+                  <img alt="User avatar" src={photo} />
                 </div>
               </div>
 
@@ -95,7 +91,7 @@ const Navbar = () => {
                transition-all duration-200 ease-out **:font-medium space-y-1 z-99"
               >
                 <p className="text-center text-2xl font-semibold my-2">
-                  User Name
+                  {displayName}
                 </p>
 
                 <li>
@@ -109,12 +105,24 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:bg-error hover:text-error-content transition-all duration-200 rounded-xl">
+                  <Link
+                    onClick={() => signOutUser()}
+                    className="hover:bg-error hover:text-error-content transition-all duration-200 rounded-xl"
+                  >
                     Logout
                   </Link>
                 </li>
               </ul>
             </div>
+          </>
+        ) : (
+          <>
+            <NavLink to="/auth/login">
+              <button className="btn btn-primary">Login</button>
+            </NavLink>
+            <NavLink to="/auth/signup">
+              <button className="btn btn-primary">Signup</button>
+            </NavLink>
           </>
         )}
       </div>
