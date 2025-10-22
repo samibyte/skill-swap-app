@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
+import { use } from "react";
+import AuthContext from "../contexts/AuthContext";
 
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContext);
+
   return (
     <div className="navbar px-30 bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -42,52 +46,77 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Home </a>
+        <ul className=" flex gap-2">
+          <li className="group hover:cursor-pointer">
+            <a className="relative p-2 text-lg font-medium text-neutral transition-all duration-300 ease-in-out hover:text-secondary md:text-base">
+              Home
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            </a>
           </li>
-
-          <li>
-            <a>My Profile</a>
+          <li className="group hover:cursor-pointer">
+            <a className="relative p-2 text-lg font-medium text-neutral transition-all duration-300 ease-in-out hover:text-secondary md:text-base">
+              My Profile
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            </a>
           </li>
         </ul>
       </div>
       <div className="navbar-end flex gap-5">
-        <NavLink to="/auth/login">
-          <button className="btn btn-primary">Login</button>
-        </NavLink>
-        <NavLink to="/auth/signup">
-          <button className="btn btn-primary">Signup</button>
-        </NavLink>
-        {/* <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+        {user ? (
+          <>
+            <NavLink to="/auth/login">
+              <button className="btn btn-primary">Login</button>
+            </NavLink>
+            <NavLink to="/auth/signup">
+              <button className="btn btn-primary">Signup</button>
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <Link className="btn">Log Out</Link>
+            <div className="dropdown dropdown-end group relative">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar hover:scale-105 transition-transform duration-200"
+              >
+                <div className="w-10 rounded-full ring-2 ring-base-300 hover:ring-primary transition-colors duration-200">
+                  <img
+                    alt="User avatar"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              </div>
+
+              <ul
+                tabIndex={-1}
+                className="menu menu-sm absolute right-0 mt-2 min-w-48 rounded-2xl bg-base-100 p-2 shadow-xl border border-base-200
+               opacity-0 invisible group-hover:opacity-100 group-hover:visible
+               transition-all duration-200 ease-out **:font-medium space-y-1 z-99"
+              >
+                <p className="text-center text-2xl font-semibold my-2">
+                  User Name
+                </p>
+
+                <li>
+                  <Link className="hover:bg-primary hover:text-primary-content transition-all duration-200 rounded-xl">
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:bg-primary hover:text-primary-content transition-all duration-200 rounded-xl">
+                    Settings
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:bg-error hover:text-error-content transition-all duration-200 rounded-xl">
+                    Logout
+                  </Link>
+                </li>
+              </ul>
             </div>
-          </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a className="justify-between">Profile</a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
-        <a className="btn">Log Out</a> */}
+          </>
+        )}
       </div>
     </div>
   );
