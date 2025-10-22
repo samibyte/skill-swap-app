@@ -6,12 +6,18 @@ import {
   Mail,
   UserRound,
 } from "lucide-react";
-import { useState } from "react";
+import { use, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import AuthContext from "../contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const Signup = () => {
-  const [user, setUser] = useState({
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile, setUser, signInWithGoogle } =
+    use(AuthContext);
+
+  const [userFormData, setUserFormData] = useState({
     name: "",
     photo: "",
     email: "",
@@ -26,17 +32,17 @@ const Signup = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser((prev) => ({ ...prev, [name]: value }));
+    setUserFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    const name = user.name;
-    const photo = user.photo || null;
-    const email = user.email;
-    const password = user.password;
+    const name = userFormData.name;
+    const photo = userFormData.photo || null;
+    const email = userFormData.email;
+    const password = userFormData.password;
 
     let newErrors = { name: "", email: "", password: "" };
 
@@ -58,10 +64,49 @@ const Signup = () => {
     }
 
     setLoading(true);
+    try {
+      const userCred = await createUser(email, password);
+      const user = userCred.user;
+      console.log(user);
+      await updateUserProfile({ displayName: name, photoURL: photo });
+      setUser({ ...user, displayName: name, photoURL: photo });
+      toast.success("Account created successfully");
+      navigate("/");
+    } catch (err) {
+      console.log(err);
 
+      let errorMessage = "Registration failed. Try again.";
+
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          errorMessage = "This email is already registered. Try logging in.";
+          break;
+        case "auth/invalid-email":
+          errorMessage = "Please enter a valid email address.";
+          break;
+        case "auth/network-request-failed":
+          errorMessage = "Network error. Check your connection and try again.";
+          break;
+        default:
+          errorMessage = err.message || errorMessage;
+      }
+
+      toast.error(errorMessage);
+    }
     setLoading(false);
-    alert("Login successful!");
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const user = result.user;
+      setUser(user);
+      toast.success("Signed in successfully!");
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+
   return (
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
       <div className="w-full max-w-md rounded-lg  p-6">
@@ -75,7 +120,7 @@ const Signup = () => {
         <h2 className="mb-8 poppins-font text-center opacity-50 text-xl font-semibold text-neutral">
           Join Skill Swap
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleRegister}>
           {/* Name*/}
           <div className="mb-6">
             <label
@@ -92,7 +137,7 @@ const Signup = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your name"
-                value={user.name}
+                value={userFormData.name}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.name
@@ -122,7 +167,7 @@ const Signup = () => {
                 type="text"
                 name="photo"
                 placeholder="Enter your photo URL (optional)."
-                value={user.photo}
+                value={userFormData.photo}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.photo
@@ -152,7 +197,7 @@ const Signup = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={user.email}
+                value={userFormData.email}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.email
@@ -182,7 +227,7 @@ const Signup = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                value={user.password}
+                value={userFormData.password}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.password
@@ -210,6 +255,7 @@ const Signup = () => {
           <div className="divider">OR</div>
           {/* Google Button */}
           <button
+            onClick={handleGoogleSignIn}
             type="button"
             className="btn w-full bg-white text-neutral hover:shadow-sm border-[#e5e5e5]"
           >

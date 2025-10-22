@@ -1,15 +1,18 @@
 import { ArrowLeft, LoaderCircle, Mail } from "lucide-react";
-import { useState } from "react";
+import { use, useState } from "react";
 import { Link } from "react-router";
 import logo from "../assets/logo.png";
+import AuthContext from "../contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
+  const { resetPassWithEmail } = use(AuthContext);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setMessage("");
@@ -18,10 +21,14 @@ const ForgotPassword = () => {
       setError("Please enter a valid email.");
       return;
     }
-
     setLoading(true);
+    try {
+      await resetPassWithEmail(email);
+      setMessage("If this email is registered, a reset link has been sent.");
+    } catch (err) {
+      toast.error(err);
+    }
     setLoading(false);
-    setMessage("If this email is registered, a reset link has been sent.");
   };
 
   return (
@@ -79,9 +86,11 @@ const ForgotPassword = () => {
             )}
           </button>
 
-          {message && (
-            <p className="mt-4 text-center text-sm text-green-600">{message}</p>
-          )}
+          <div className="mt-4 min-h-6">
+            {message && (
+              <p className="text-center text-sm text-green-600">{message}</p>
+            )}
+          </div>
         </form>
 
         {/* Back to login */}

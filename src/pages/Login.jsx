@@ -1,23 +1,29 @@
 import { ArrowLeft, LoaderCircle, Lock, Mail } from "lucide-react";
-import { useState } from "react";
+import { use, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import toast from "react-hot-toast";
+import AuthContext from "../contexts/AuthContext";
 
 const Login = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  const { setUser, signInWithEmail, signInWithGoogle } = use(AuthContext);
+
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser((prev) => ({ ...prev, [name]: value }));
+    setUserFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const email = user.email;
-    const password = user.password;
+    const email = userFormData.email;
+    const password = userFormData.password;
 
     let newErrors = { email: "", password: "" };
 
@@ -30,8 +36,57 @@ const Login = () => {
     }
 
     setLoading(true);
+
+    try {
+      const userCred = await signInWithEmail(email, password);
+      const user = userCred.user;
+      setUser(user);
+      toast.success("Login successful!");
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+
+      let errorMessage = "Login failed. Please try again.";
+
+      switch (err.code) {
+        case "auth/invalid-credential":
+          errorMessage =
+            "Login failed: invalid credential. Try signing in again.";
+          break;
+        case "auth/user-not-found":
+          errorMessage = "No account found with this email.";
+          break;
+        case "auth/wrong-password":
+          errorMessage = "Incorrect password. Please try again.";
+          break;
+        case "auth/invalid-email":
+          errorMessage = "Please enter a valid email address.";
+          break;
+        case "auth/user-disabled":
+          errorMessage = "This account has been disabled.";
+          break;
+        case "auth/network-request-failed":
+          errorMessage = "Network error. Check your connection and try again.";
+          break;
+        default:
+          errorMessage = err.message || errorMessage;
+      }
+
+      toast.error(errorMessage);
+    }
+
     setLoading(false);
-    alert("Login successful!");
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const user = result.user;
+      setUser(user);
+      toast.success("Signed in successfully!");
+    } catch (err) {
+      toast.error(err);
+    }
   };
   return (
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
@@ -46,7 +101,7 @@ const Login = () => {
         <h2 className="mb-8 poppins-font text-center opacity-50 text-xl font-semibold text-neutral">
           Login to Skill Swap
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           {/* Email */}
           <div className="mb-6">
             <label
@@ -63,7 +118,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={user.email}
+                value={userFormData.email}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.email
@@ -93,7 +148,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                value={user.password}
+                value={userFormData.password}
                 onChange={handleChange}
                 className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.password
@@ -130,6 +185,7 @@ const Login = () => {
           <div className="divider">OR</div>
           {/* Google Button */}
           <button
+            onClick={handleGoogleSignIn}
             type="button"
             className="btn w-full bg-white text-neutral hover:shadow-sm border-[#e5e5e5]"
           >
