@@ -53,11 +53,11 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex gap-5">
-        <NavLink>
-          <button className="btn btn-primary">Signup</button>
-        </NavLink>
-        <NavLink>
+        <NavLink to="/auth/login">
           <button className="btn btn-primary">Login</button>
+        </NavLink>
+        <NavLink to="/auth/signup">
+          <button className="btn btn-primary">Signup</button>
         </NavLink>
         {/* <div className="dropdown dropdown-end">
           <div

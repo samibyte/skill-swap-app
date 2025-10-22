@@ -1,0 +1,111 @@
+import { ArrowLeft, LoaderCircle, Mail } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router";
+import logo from "../assets/logo.png";
+
+const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    setMessage("");
+
+    if (!email.trim()) {
+      setError("Please enter a valid email.");
+      return;
+    }
+
+    setLoading(true);
+    setLoading(false);
+    setMessage("If this email is registered, a reset link has been sent.");
+  };
+
+  return (
+    <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
+      <div className="w-full max-w-md rounded-lg p-6">
+        {/* Logo */}
+        <div className="mb-4 flex justify-center">
+          <img className="w-16" src={logo} alt="skill swap logo" />
+        </div>
+
+        <h2 className="mb-2 poppins-font text-center text-4xl font-semibold text-neutral">
+          Reset Password
+        </h2>
+        <h2 className="mb-8 poppins-font text-center opacity-50 text-xl font-semibold text-neutral">
+          We'll send you a reset link
+        </h2>
+
+        <form onSubmit={handleSubmit}>
+          {/* Email */}
+          <div className="mb-6">
+            <label
+              htmlFor="email"
+              className="mb-1.5 block text-sm font-medium text-neutral-700"
+            >
+              Email
+            </label>
+            <div className="relative flex items-center">
+              <span className="absolute left-3 text-neutral-500">
+                <Mail size={20} />
+              </span>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your registered email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
+                  error ? "border-red-500 ring-red-200" : "border-neutral-300"
+                }`}
+              />
+            </div>
+            {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="flex btn w-full items-center justify-center rounded-lg bg-primary text-white hover:bg-neutral disabled:bg-neutral-300"
+          >
+            {loading ? (
+              <LoaderCircle className="animate-spin" size={20} />
+            ) : (
+              "Send Reset Link"
+            )}
+          </button>
+
+          {message && (
+            <p className="mt-4 text-center text-sm text-green-600">{message}</p>
+          )}
+        </form>
+
+        {/* Back to login */}
+        <div className="mt-6 text-center">
+          <span className="text-sm text-neutral-600">
+            Remembered your password?{" "}
+          </span>
+          <Link
+            to="/auth/login"
+            className="text-sm font-medium text-blue-600 hover:underline"
+          >
+            Login
+          </Link>
+        </div>
+      </div>
+
+      <Link
+        to="/"
+        className="text-center absolute bottom-12 flex justify-center items-center text-sm text-gray-700"
+      >
+        <ArrowLeft /> <p className="hover:underline">Go Back Home</p>
+      </Link>
+    </div>
+  );
+};
+
+export default ForgotPassword;

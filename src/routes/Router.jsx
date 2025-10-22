@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
+import AuthLayout from "../layouts/AuthLayout";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +19,24 @@ const router = createBrowserRouter([
           const skillData = await res.json();
           return { skillData };
         },
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "/auth/login",
+        Component: Login,
+      },
+      {
+        path: "/auth/signup",
+        Component: Signup,
+      },
+      {
+        path: "/auth/forgot-password",
+        Component: ForgotPassword,
       },
     ],
   },
