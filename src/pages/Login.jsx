@@ -1,4 +1,4 @@
-import { ArrowLeft, LoaderCircle, Lock, Mail } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff, LoaderCircle, Lock, Mail } from "lucide-react";
 import { use, useState } from "react";
 import logo from "../assets/logo.png";
 import { Link, Navigate, useNavigate } from "react-router";
@@ -13,6 +13,7 @@ const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -144,8 +145,22 @@ const Login = () => {
               <span className="absolute left-3 text-neutral-500">
                 <Lock size={20} />
               </span>
+              <div
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 hover:cursor-pointer hover:text-neutral text-neutral-500"
+              >
+                {showPass ? (
+                  <span>
+                    <Eye size={20} />
+                  </span>
+                ) : (
+                  <span>
+                    <EyeOff size={20} />
+                  </span>
+                )}
+              </div>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 value={userFormData.password}

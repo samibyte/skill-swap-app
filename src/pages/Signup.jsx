@@ -1,6 +1,8 @@
 import {
   ArrowLeft,
   CircleUserRound,
+  Eye,
+  EyeOff,
   LoaderCircle,
   Lock,
   Mail,
@@ -29,6 +31,7 @@ const Signup = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -223,8 +226,22 @@ const Signup = () => {
               <span className="absolute left-3 text-neutral-500">
                 <Lock size={20} />
               </span>
+              <div
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 hover:cursor-pointer hover:text-neutral text-neutral-500"
+              >
+                {showPass ? (
+                  <span>
+                    <Eye size={20} />
+                  </span>
+                ) : (
+                  <span>
+                    <EyeOff size={20} />
+                  </span>
+                )}
+              </div>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 value={userFormData.password}
