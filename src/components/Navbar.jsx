@@ -55,16 +55,50 @@ const Navbar = () => {
         {/* nav links */}
         <ul className="hidden lg:flex">
           <li className="group hover:cursor-pointer">
-            <a className="relative p-2 text-lg font-medium text-neutral transition-all duration-300 ease-in-out hover:text-secondary md:text-base">
-              Home
-              <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-in-out group-hover:w-full"></span>
-            </a>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
+     ${isActive ? "text-secondary" : "text-neutral"}`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  Home
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
+          ${
+            isActive
+              ? "w-full bg-secondary"
+              : "w-0 bg-secondary group-hover:w-full"
+          }`}
+                  ></span>
+                </>
+              )}
+            </NavLink>
           </li>
           <li className="group hover:cursor-pointer">
-            <a className="relative p-2 text-lg font-medium text-neutral transition-all duration-300 ease-in-out hover:text-secondary md:text-base">
-              My Profile
-              <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-in-out group-hover:w-full"></span>
-            </a>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
+     ${isActive ? "text-secondary" : "text-neutral"}`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  My Profile
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
+          ${
+            isActive
+              ? "w-full bg-secondary"
+              : "w-0 bg-secondary group-hover:w-full"
+          }`}
+                  ></span>
+                </>
+              )}
+            </NavLink>
           </li>
         </ul>
 

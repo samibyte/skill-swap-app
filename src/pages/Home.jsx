@@ -22,7 +22,7 @@ const Home = () => {
         </h2>
         <div className="grid grid-cols-3 gap-10 py-20">
           {skillData.map((skill) => (
-            <SkillCard skill={skill} />
+            <SkillCard key={skill.skillId} skill={skill} />
           ))}{" "}
         </div>
       </section>

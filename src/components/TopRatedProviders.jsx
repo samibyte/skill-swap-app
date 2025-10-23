@@ -1,5 +1,6 @@
 import "aos/dist/aos.css";
 import { Star } from "lucide-react";
+import TopProviderCard from "./TopProviderCard";
 
 const TopRatedProviders = ({ skillData }) => {
   const topProviders = skillData
@@ -25,29 +26,8 @@ const TopRatedProviders = ({ skillData }) => {
         data-aos-mirror="true"
         data-aos-once="false"
       >
-        {topProviders?.map((p) => (
-          <div
-            key={p.skillId}
-            className="bg-base-100/70 backdrop-blur-md border border-base-300 rounded-4xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center p-6"
-            data-aos="fade-up"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-delay={p.skillId * 100}
-          >
-            <img
-              src={p.image}
-              alt={p.providerName}
-              className="w-48 h-48 rounded-full object-cover mb-3 border border-primary/40"
-            />
-            <h3 className="text-2xl poppins-font font-medium">
-              {p.providerName}
-            </h3>
-            <p className="text-sm opacity-70">{p.category}</p>
-            <div className="flex items-center justify-center mt-2 text-yellow-500">
-              <Star className="w-4 h-4 fill-yellow-400" />
-              <span className="ml-1 text-sm">{p.rating}</span>
-            </div>
-          </div>
+        {topProviders?.map((provider) => (
+          <TopProviderCard key={provider.skillId} provider={provider} />
         ))}
       </div>
     </div>

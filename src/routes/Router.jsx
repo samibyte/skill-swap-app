@@ -5,6 +5,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import ForgotPassword from "../pages/ForgotPassword";
+import SkillsDetails from "../pages/SkillsDetails";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,15 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: async () => {
+          const res = await fetch("/skillsListing.json");
+          const skillData = await res.json();
+          return { skillData };
+        },
+      },
+      {
+        path: "/skills-details/:id",
+        Component: SkillsDetails,
         loader: async () => {
           const res = await fetch("/skillsListing.json");
           const skillData = await res.json();
