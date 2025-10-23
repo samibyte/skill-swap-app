@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router";
 import HeroSlider from "../components/HeroSlider";
 import SkillCard from "../components/SkillCard";
+import TopRatedProviders from "../components/TopRatedProviders";
 
 const Home = () => {
   const { skillData } = useLoaderData();
@@ -9,20 +10,23 @@ const Home = () => {
   return (
     <div>
       {/* hero slider */}
-      <section className="relative shadow-2xl rounded-4xl max-w-[1400px] my-20 h-[600px] mx-auto">
+      <section className="relative drop-shadow-xl rounded-xl max-w-[1400px] my-25 h-[700px] mx-auto">
         <HeroSlider />
       </section>
 
       {/* popular skills section  */}
-      <section className="mx-30">
-        <h2 className="text-5xl font-semibold text-center poppins-font">
+      <section className="mx-50">
+        <h2 className="text-5xl font-bold text-center poppins-font">
           Popular Skills You May Like
         </h2>
-        <div className="grid grid-cols-3 gap-8 py-20">
+        <div className="grid grid-cols-3 gap-10 py-20">
           {skillData.map((skill) => (
             <SkillCard skill={skill} />
           ))}{" "}
         </div>
+      </section>
+      <section>
+        <TopRatedProviders skillData={skillData} />
       </section>
     </div>
   );

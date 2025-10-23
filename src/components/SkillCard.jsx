@@ -20,10 +20,7 @@ const SkillCard = ({ skill }) => {
             </div>
           </div>
         </div>
-        <div className="flex gap-2 w-fit">
-          <button className="btn btn-primary btn-wide">View Details</button>
-          <button className="btn btn-secondary btn-wide">Book Now</button>
-        </div>
+        <button className="btn btn-primary">View Details</button>
       </div>
     </div>
   );
