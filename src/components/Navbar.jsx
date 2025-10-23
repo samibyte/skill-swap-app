@@ -223,7 +223,7 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center">
             <NavLink to="/auth/login">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn">Login</button>
             </NavLink>
             <div className="divider text-neutral-400 divider-horizontal">
               OR
