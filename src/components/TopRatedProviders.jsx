@@ -1,17 +1,10 @@
-import { useEffect } from "react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import { Star } from "lucide-react";
-import useAOS from "../hooks/useAOS";
 
 const TopRatedProviders = ({ skillData }) => {
   const topProviders = skillData
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
-
-  console.log(topProviders);
-
-  useAOS({ duration: 1200, once: false });
 
   return (
     <div
@@ -29,12 +22,16 @@ const TopRatedProviders = ({ skillData }) => {
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 px-80"
         data-aos="zoom-in-up"
+        data-aos-mirror="true"
+        data-aos-once="false"
       >
         {topProviders?.map((p) => (
           <div
             key={p.skillId}
             className="bg-base-100/70 backdrop-blur-md border border-base-300 rounded-4xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center p-6"
             data-aos="fade-up"
+            data-aos-mirror="true"
+            data-aos-once="false"
             data-aos-delay={p.skillId * 100}
           >
             <img
