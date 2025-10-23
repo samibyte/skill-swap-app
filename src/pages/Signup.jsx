@@ -9,7 +9,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { use, useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "/logo.png";
 import { Link, useNavigate } from "react-router";
 import AuthContext from "../contexts/AuthContext";
 import toast from "react-hot-toast";
@@ -105,6 +105,7 @@ const Signup = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
+      navigate("/");
     } catch (err) {
       toast.error(err);
     }
@@ -112,6 +113,7 @@ const Signup = () => {
 
   return (
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
+      <title>SkillSwap - Signup</title>
       <div className="w-full max-w-md rounded-lg  p-6">
         {/* login text and logo */}
         <div className="mb-4 flex justify-center">

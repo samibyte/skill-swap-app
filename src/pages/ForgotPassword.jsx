@@ -1,7 +1,7 @@
 import { ArrowLeft, LoaderCircle, Mail } from "lucide-react";
 import { use, useState } from "react";
 import { Link, useLocation } from "react-router";
-import logo from "../assets/logo.png";
+import logo from "/logo.png";
 import AuthContext from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 
@@ -44,6 +44,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
+      <title>SkillSwap - Reset Password</title>
       <div className="w-full max-w-md rounded-lg p-6">
         {/* Logo */}
         <div className="mb-4 flex justify-center">

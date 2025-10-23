@@ -1,7 +1,7 @@
 import { ArrowLeft, Eye, EyeOff, LoaderCircle, Lock, Mail } from "lucide-react";
 import { use, useState } from "react";
-import logo from "../assets/logo.png";
-import { Link, Navigate, useNavigate } from "react-router";
+import logo from "/logo.png";
+import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import AuthContext from "../contexts/AuthContext";
 
@@ -85,12 +85,14 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
+      navigate("/");
     } catch (err) {
       toast.error(err);
     }
   };
   return (
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
+      <title>SkillSwap - Login</title>
       <div className="w-full max-w-md rounded-lg p-6">
         {/* login text and logo */}
         <div className="mb-4 flex justify-center">
