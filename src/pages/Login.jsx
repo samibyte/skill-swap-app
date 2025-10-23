@@ -1,12 +1,13 @@
 import { ArrowLeft, Eye, EyeOff, LoaderCircle, Lock, Mail } from "lucide-react";
 import { use, useState } from "react";
 import logo from "/logo.png";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import AuthContext from "../contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { setUser, signInWithEmail, signInWithGoogle } = use(AuthContext);
 
@@ -43,7 +44,7 @@ const Login = () => {
       const user = userCred.user;
       setUser(user);
       toast.success("Login successful!");
-      navigate("/");
+      navigate(location.state ? location.state : "/");
     } catch (err) {
       console.log(err);
 
@@ -85,7 +86,7 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
-      navigate("/");
+      navigate(location.state ? location.state : "/");
     } catch (err) {
       toast.error(err);
     }

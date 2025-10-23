@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import ForgotPassword from "../pages/ForgotPassword";
 import SkillsDetails from "../pages/SkillsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/skills-details/:id",
-        Component: SkillsDetails,
+        element: (
+          <PrivateRoute>
+            <SkillsDetails />
+          </PrivateRoute>
+        ),
         loader: async () => {
           const res = await fetch("/skillsListing.json");
           const skillData = await res.json();
