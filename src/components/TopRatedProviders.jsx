@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Star } from "lucide-react";
+import useAOS from "../hooks/useAOS";
 
 const TopRatedProviders = ({ skillData }) => {
   const topProviders = skillData
@@ -10,13 +11,7 @@ const TopRatedProviders = ({ skillData }) => {
 
   console.log(topProviders);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-      once: false,
-      offset: 100,
-    });
-  }, []);
+  useAOS({ duration: 1200, once: false });
 
   return (
     <div

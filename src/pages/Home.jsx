@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import HeroSlider from "../components/HeroSlider";
 import SkillCard from "../components/SkillCard";
 import TopRatedProviders from "../components/TopRatedProviders";
+import HowItWorks from "../components/HowItWorks";
 
 const Home = () => {
   const { skillData } = useLoaderData();
@@ -27,6 +28,9 @@ const Home = () => {
       </section>
       <section>
         <TopRatedProviders skillData={skillData} />
+      </section>
+      <section>
+        <HowItWorks />
       </section>
     </div>
   );
