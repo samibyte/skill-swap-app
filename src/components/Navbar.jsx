@@ -13,7 +13,7 @@ const Navbar = () => {
     `https://avatar.iran.liara.run/username?username=${displayName}+`;
 
   return (
-    <div className="navbar px-30 bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
+    <div className="navbar md:px-30 bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,20 +35,61 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-36 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
+            <li className="group hover:cursor-pointer">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
+                ${isActive ? "text-secondary" : "text-neutral"}`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    Home
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
+                ${
+                  isActive
+                    ? "w-full bg-secondary"
+                    : "w-0 bg-secondary group-hover:w-full"
+                }`}
+                    ></span>
+                  </>
+                )}
+              </NavLink>
             </li>
-
-            <li>
-              <a>Item 3</a>
+            <li className="group hover:cursor-pointer">
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
+     ${isActive ? "text-secondary" : "text-neutral"}`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    My Profile
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
+          ${
+            isActive
+              ? "w-full bg-secondary"
+              : "w-0 bg-secondary group-hover:w-full"
+          }`}
+                    ></span>
+                  </>
+                )}
+              </NavLink>
             </li>
           </ul>
         </div>
         <Link className="flex gap-2 items-center">
-          <img className="w-16" src={logo} alt="" />
-          <h1 className="poppins-font text-2xl font-bold">Skill Swap</h1>
+          <img className="w-12 sm:w-16 " src={logo} alt="" />
+          <h1 className="poppins-font md:text-2xl hidden sm:inline-block font-bold">
+            Skill Swap
+          </h1>
         </Link>
       </div>
       <div className="navbar-end flex gap-5">
