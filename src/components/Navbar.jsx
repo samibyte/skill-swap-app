@@ -13,7 +13,7 @@ const Navbar = () => {
     `https://avatar.iran.liara.run/username?username=${displayName}+`;
 
   return (
-    <div className="navbar px-30 bg-base-100 shadow-sm">
+    <div className="navbar px-30 bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -117,7 +117,7 @@ const Navbar = () => {
                 tabIndex={-1}
                 className="menu menu-sm absolute right-0 mt-2 min-w-48 rounded-2xl bg-base-100 p-2 shadow-xl border border-base-200
                opacity-0 invisible group-hover:opacity-100 group-hover:visible
-               transition-all duration-200 ease-out **:font-medium space-y-1 z-99"
+               transition-all duration-200 ease-out **:font-medium space-y-1 z-999"
               >
                 <p className="text-center text-2xl font-semibold my-2">
                   {displayName}
