@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 const SkillCard = ({ skill }) => {
   return (
-    <div className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-1 overflow-hidden group">
+    <div className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-0.5 overflow-hidden group">
       {/* Image with subtle overlay */}
       <div className="relative w-full h-48">
         <img
@@ -28,9 +28,7 @@ const SkillCard = ({ skill }) => {
           </div>
         </div>
 
-        <button className="btn btn-primary w-full transition-transform hover:scale-105">
-          View Details
-        </button>
+        <button className="btn btn-primary w-full">View Details</button>
       </div>
     </div>
   );
