@@ -31,7 +31,10 @@ const UserAvatarDropdown = () => {
         <p className="text-center text-2xl font-semibold my-2">{displayName}</p>
 
         <li>
-          <Link className="hover:bg-primary hover:text-primary-content transition-all duration-200 rounded-xl">
+          <Link
+            to="/my-profile"
+            className="hover:bg-primary hover:text-primary-content transition-all duration-200 rounded-xl"
+          >
             Profile
           </Link>
         </li>

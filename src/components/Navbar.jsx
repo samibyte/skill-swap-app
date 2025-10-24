@@ -104,7 +104,7 @@ const Navbar = () => {
           </li>
           <li className="group hover:cursor-pointer">
             <NavLink
-              to="/profile"
+              to="/my-profile"
               className={({ isActive }) =>
                 `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
                 ${isActive ? "text-secondary" : "text-neutral"}`

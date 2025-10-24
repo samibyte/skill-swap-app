@@ -2,7 +2,7 @@ import logo from "/logo.png";
 
 const Footer = () => {
   return (
-    <div className="footer lg:pl-25 grid-cols-1 sm:footer-horizontal bg-neutral text-neutral-content md:p-10 p-5">
+    <div className="footer lg:pl-25 sm:footer-horizontal bg-accent text-neutral-content md:p-10 p-5">
       <aside>
         <img className="w-25" src={logo} alt="" />
         <p className="font-semibold text-2xl text-secondary">Skill Swap</p>

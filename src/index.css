@@ -22,11 +22,14 @@
   --color-secondary: #f59e0b;
   --color-secondary-content: #111827;
 
-  --color-accent: #10b981;
-  --color-accent-content: #ffffff;
+  /*  --color-accent: #10b981;
+  --color-accent-content: #ffffff; */
 
   --color-neutral: #1f2937;
   --color-neutral-content: #f9fafb;
+
+  --color-accent: #1f2937;
+  --color-accent-content: #f9fafb;
 
   --radius-selector: 0.75rem;
   --radius-field: 0.5rem;
@@ -52,11 +55,14 @@
   --color-secondary: #f59e0b;
   --color-secondary-content: #0f172a;
 
-  --color-accent: #10b981;
-  --color-accent-content: #f8fafc;
+  /*  --color-accent: #10b981;
+  --color-accent-content: #f8fafc; */
 
-  --color-neutral: #475569;
+  --color-neutral: #94a3b8;
   --color-neutral-content: #f1f5f9;
+
+  --color-accent: #28374b;
+  --color-accent-content: #f1f5f9;
 
   --radius-selector: 0.75rem;
   --radius-field: 0.5rem;

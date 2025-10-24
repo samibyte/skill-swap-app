@@ -8,6 +8,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import SkillsDetails from "../pages/SkillsDetails";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../components/Loader";
+import MyProfile from "../pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
           return { skillData };
         },
         hydrateFallbackElement: <Loader />,
+      },
+      {
+        path: "/my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },

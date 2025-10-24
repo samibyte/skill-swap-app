@@ -1,4 +1,3 @@
-import "aos/dist/aos.css";
 import TopProviderCard from "./TopProviderCard";
 
 const TopRatedProviders = ({ skillData }) => {
