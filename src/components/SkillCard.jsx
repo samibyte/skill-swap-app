@@ -31,7 +31,7 @@ const SkillCard = ({ skill }) => {
         <div>
           <h3 className="text-xl font-semibold mb-2">{skillName}</h3>
           <div className="flex justify-between items-center mb-4">
-            <p className="font-medium text-base-content">${price} / session</p>
+            <p className="font-medium text-base-content">${price} / hour</p>
             <div className="flex gap-1 items-center">
               <Star className="w-4 h-4 text-secondary" />
               <span className="text-sm">{rating}</span>
