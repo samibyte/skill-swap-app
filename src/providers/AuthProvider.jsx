@@ -10,10 +10,12 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import app from "../firebase/firebase.config";
 import { useEffect, useState } from "react";
 
 const auth = getAuth(app);
+const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
@@ -53,10 +55,12 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const authInfo = {
+    auth,
+    db,
     loading,
     setLoading,
     user,

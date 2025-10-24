@@ -43,7 +43,9 @@ const Signup = () => {
     e.preventDefault();
 
     const name = userFormData.name;
-    const photo = userFormData.photo || null;
+    const photo =
+      userFormData.photo ||
+      `https://avatar.iran.liara.run/username?username=${name}+`;
     const email = userFormData.email;
     const password = userFormData.password;
 
@@ -66,8 +68,8 @@ const Signup = () => {
       return;
     }
 
-    setLoading(true);
     try {
+      setLoading(true);
       const userCred = await createUser(email, password);
       const user = userCred.user;
       console.log(user);
@@ -95,8 +97,9 @@ const Signup = () => {
       }
 
       toast.error(errorMessage);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleGoogleSignIn = async () => {

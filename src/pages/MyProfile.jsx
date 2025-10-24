@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   User,
   Star,
@@ -12,43 +12,62 @@ import {
 } from "lucide-react";
 import AuthContext from "../contexts/AuthContext";
 import { Link } from "react-router";
+import ProfileUpdateModal from "../components/ProfileUpdateModal";
+import { doc, onSnapshot } from "firebase/firestore";
+
+// dummy data
+
+const offeredSkills = [
+  {
+    id: 1,
+    name: "Guitar Basics",
+    rating: 4.5,
+    students: 7,
+    image: "https://i.ibb.co.com/JjR2jSHz/guitar-basics.jpg",
+  },
+  {
+    id: 2,
+    name: "React for Beginners",
+    rating: 4.9,
+    students: 19,
+    image: "https://i.ibb.co.com/B5xCvxG4/react-code.jpg",
+  },
+];
+
+const learnedSkills = [
+  {
+    id: 1,
+    name: "Photography 101",
+    provider: "Emily Clark",
+    image: "https://i.ibb.co.com/0ydbtpXk/canon-camera.jpg",
+  },
+  {
+    id: 2,
+    name: "Cooking Essentials",
+    provider: "John Doe",
+    image: "https://i.ibb.co.com/60g9S1rG/cooking-ess.jpg",
+  },
+];
 
 const MyProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, db } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userBio, setUserBio] = useState(
+    "Currently accepting skill trades, high-fives, and cookies. Skills optional."
+  );
 
-  // dummy data
+  useEffect(() => {
+    if (!user) return;
 
-  const offeredSkills = [
-    {
-      id: 1,
-      name: "Guitar Basics",
-      rating: 4.5,
-      students: 7,
-      image: "https://i.ibb.co.com/JjR2jSHz/guitar-basics.jpg",
-    },
-    {
-      id: 2,
-      name: "React for Beginners",
-      rating: 4.9,
-      students: 19,
-      image: "https://i.ibb.co.com/B5xCvxG4/react-code.jpg",
-    },
-  ];
+    const docRef = doc(db, "users", user.uid);
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        setUserBio(docSnap.data().bio || "");
+      }
+    });
 
-  const learnedSkills = [
-    {
-      id: 1,
-      name: "Photography 101",
-      provider: "Emily Clark",
-      image: "https://i.ibb.co.com/0ydbtpXk/canon-camera.jpg",
-    },
-    {
-      id: 2,
-      name: "Cooking Essentials",
-      provider: "John Doe",
-      image: "https://i.ibb.co.com/60g9S1rG/cooking-ess.jpg",
-    },
-  ];
+    return () => unsubscribe();
+  }, [user, db]);
 
   return (
     <div className="min-h-screen bg-base-200 pt-10 pb-25">
@@ -60,7 +79,10 @@ const MyProfile = () => {
         >
           <div className="w-28 h-28 rounded-full ring-4 ring-primary overflow-hidden">
             <img
-              src={user?.photoURL || "/images/default-avatar.png"}
+              src={
+                user?.photoURL ||
+                `https://avatar.iran.liara.run/username?username=${user?.displayName}+`
+              }
               alt={user?.displayName || "User"}
               className="w-full h-full object-cover"
             />
@@ -75,16 +97,21 @@ const MyProfile = () => {
               <Mail className="w-4 h-4" /> {user?.email}
             </p>
             <p className="mt-3 text-neutral/80 max-w-md mx-auto md:mx-0">
-              Passionate about learning and sharing skills with others through
-              meaningful exchanges.
+              {userBio}
             </p>
           </div>
 
-          <button className="btn btn-outline btn-primary flex items-center gap-2">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="btn btn-outline btn-primary flex items-center gap-2"
+          >
             <Settings className="w-4 h-4" /> Edit Profile
           </button>
         </div>
-
+        <ProfileUpdateModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
         {/* Stats */}
         <div
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8"
