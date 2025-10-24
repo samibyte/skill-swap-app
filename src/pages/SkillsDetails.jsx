@@ -104,11 +104,10 @@ const SkillsDetails = () => {
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div
             className="bg-base-100 p-6 rounded-2xl shadow-lg"
-            data-aos="zoom-out-up"
+            data-aos="slide-up"
             data-aos-delay="200"
             data-aos-easing="ease-out"
             data-aos-mirror="true"
-            data-aos-once="false"
           >
             <div className="text-sm opacity-70 mb-2">Available Slots</div>
             <div className="text-3xl font-bold text-primary">
@@ -117,11 +116,10 @@ const SkillsDetails = () => {
           </div>
           <div
             className="bg-base-100 p-6 rounded-2xl shadow-lg"
-            data-aos="zoom-out-up"
+            data-aos="slide-up"
             data-aos-delay="200"
             data-aos-easing="ease-out"
             data-aos-mirror="true"
-            data-aos-once="false"
           >
             <div className="text-sm opacity-70 mb-2">Rating</div>
             <div className="text-3xl font-bold text-primary">
@@ -130,11 +128,10 @@ const SkillsDetails = () => {
           </div>
           <div
             className="bg-base-100 p-6 rounded-2xl shadow-lg"
-            data-aos="zoom-out-up"
+            data-aos="slide-up"
             data-aos-delay="200"
             data-aos-easing="ease-out"
             data-aos-mirror="true"
-            data-aos-once="false"
           >
             <div className="text-sm opacity-70 mb-2">Hourly Rate</div>
             <div className="text-3xl font-bold text-primary">${price}</div>

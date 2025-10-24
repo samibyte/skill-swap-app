@@ -14,6 +14,7 @@ import AuthContext from "../contexts/AuthContext";
 import { Link } from "react-router";
 import ProfileUpdateModal from "../components/ProfileUpdateModal";
 import { doc, onSnapshot } from "firebase/firestore";
+import useAOS from "../hooks/useAOS";
 
 // dummy data
 
@@ -50,6 +51,7 @@ const learnedSkills = [
 ];
 
 const MyProfile = () => {
+  useAOS({ duration: 1200, once: true });
   const { user, db } = useContext(AuthContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userBio, setUserBio] = useState(
@@ -143,7 +145,7 @@ const MyProfile = () => {
         {/* skills offered */}
         <div className="mt-12" data-aos="fade-up" data-aos-delay="200">
           <h3 className="text-xl font-bold mb-4 text-base-content">
-            Skills You Offer
+            Skills I Offer
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offeredSkills.map((skill) => (
@@ -169,12 +171,7 @@ const MyProfile = () => {
             ))}
 
             {/* add new skill card*/}
-            <Link
-              to="/add-skill"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              className="flex flex-col justify-center items-center border-2 border-dashed border-primary/40 rounded-2xl p-6 hover:bg-base-300/40 hover:border-primary/70 transition-all duration-300 cursor-pointer text-center"
-            >
+            <Link className="flex flex-col justify-center items-center border-2 border-dashed border-primary/40 rounded-2xl p-6 hover:bg-base-300/40 hover:border-primary/70 transition-all duration-300 cursor-pointer text-center">
               <PlusCircle className="w-10 h-10 text-primary mb-3" />
               <p className="font-semibold text-base-content mb-1">
                 Add New Skill
@@ -189,7 +186,7 @@ const MyProfile = () => {
         {/* skills learned */}
         <div className="mt-12" data-aos="fade-up" data-aos-delay="400">
           <h3 className="text-xl font-bold mb-4 text-base-content">
-            Skills You've Learned
+            Skills I've Learned
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {learnedSkills.map((skill) => (
@@ -212,12 +209,7 @@ const MyProfile = () => {
             ))}
 
             {/* browse skills card */}
-            <Link
-              to="/skills"
-              data-aos="fade-up"
-              data-aos-delay="500"
-              className="flex flex-col justify-center items-center border-2 border-dashed border-secondary/40 rounded-2xl p-6 hover:bg-base-300/40 hover:border-secondary/70 transition-all duration-300 cursor-pointer text-center"
-            >
+            <Link className="flex flex-col justify-center items-center border-2 border-dashed border-secondary/40 rounded-2xl p-6 hover:bg-base-300/40 hover:border-secondary/70 transition-all duration-300 cursor-pointer text-center">
               <Search className="w-10 h-10 text-secondary mb-3" />
               <p className="font-semibold text-base-content">
                 Browse New Skills

@@ -46,7 +46,7 @@ const Login = () => {
       toast.success("Login successful!");
       navigate(location.state ? location.state : "/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
 
       let errorMessage = "Login failed. Please try again.";
 

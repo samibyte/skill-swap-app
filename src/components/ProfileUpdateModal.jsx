@@ -19,7 +19,7 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
     name: user.displayName,
     photo:
       user.photoURL ||
-      `https://avatar.iran.liara.run/username?username=${displayName}+`,
+      `https://avatar.iran.liara.run/username?username=${user.displayName}+`,
     bio: "",
   });
 
@@ -29,13 +29,13 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
     const { name, value } = e.target;
     setUserFormData((prev) => ({ ...prev, [name]: value }));
   };
-  console.log(user);
+  // console.log(user);
   const handleUpdate = async (e) => {
     e.preventDefault();
 
     const { name, photo, bio } = userFormData;
 
-    console.log(name, photo);
+    // console.log(name, photo);
     try {
       if (!user) {
         toast.error("No authenticated user found.");
@@ -59,7 +59,7 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
       toast.success("Profile updated successfully.");
       onClose();
     } catch (err) {
-      console.error("Profile update failed:", err);
+      // console.error("Profile update failed:", err);
 
       let errorMessage = "Failed to update profile. Please try again.";
 

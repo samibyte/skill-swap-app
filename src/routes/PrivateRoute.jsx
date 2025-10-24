@@ -1,7 +1,6 @@
 import { use, useRef } from "react";
 import { Navigate, useLocation } from "react-router";
 import AuthContext from "../contexts/AuthContext";
-import { HashLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import Loader from "../components/Loader";
 
@@ -17,7 +16,12 @@ const PrivateRoute = ({ children }) => {
     return children;
   } else {
     if (!hasShownToast.current) {
-      toast.error("Please login to view details");
+      if (location.pathname === "/my-profile") {
+        toast.error("Please login to view profile");
+      } else {
+        toast.error("Please login to view details");
+      }
+
       hasShownToast.current = true;
     }
     return <Navigate state={location.pathname} to="/auth/login" />;

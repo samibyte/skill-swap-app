@@ -1,7 +1,9 @@
 import { Star } from "lucide-react";
 import { Link } from "react-router";
+import useAOS from "../hooks/useAOS";
 
 const SkillCard = ({ skill }) => {
+  useAOS({ duration: 1200, once: true });
   const { skillId, skillName, image, rating, price } = skill;
   return (
     <div

@@ -72,13 +72,13 @@ const Signup = () => {
       setLoading(true);
       const userCred = await createUser(email, password);
       const user = userCred.user;
-      console.log(user);
+      // console.log(user);
       await updateUserProfile({ displayName: name, photoURL: photo });
       setUser({ ...user, displayName: name, photoURL: photo });
       toast.success("Account created successfully");
       navigate("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
 
       let errorMessage = "Registration failed. Try again.";
 

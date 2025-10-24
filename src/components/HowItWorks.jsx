@@ -1,3 +1,5 @@
+import useAOS from "../hooks/useAOS";
+
 const steps = [
   {
     step: 1,
@@ -34,6 +36,7 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  useAOS({ duration: 900, once: true });
   return (
     <section className="bg-base-100 py-20 px-4 md:px-8 text-base-content">
       {/* Header */}

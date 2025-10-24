@@ -3,8 +3,10 @@ import HeroSlider from "../components/HeroSlider";
 import SkillCard from "../components/SkillCard";
 import TopRatedProviders from "../components/TopRatedProviders";
 import HowItWorks from "../components/HowItWorks";
+import useAOS from "../hooks/useAOS";
 
 const Home = () => {
+  useAOS({ duration: 1200, once: true });
   const { skillData } = useLoaderData();
   // console.log(skillData);
 
