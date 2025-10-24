@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { User, Star, Calendar, CircleCheckBig, Mail } from "lucide-react";
 import { useLoaderData, useParams } from "react-router";
 import toast from "react-hot-toast";
+import useAOS from "../hooks/useAOS";
 
 const SkillsDetails = () => {
+  useAOS({ duration: 1200, once: true });
+
   const { skillData } = useLoaderData();
   const { id } = useParams();
 
@@ -48,11 +51,11 @@ const SkillsDetails = () => {
     <div className="relative bg-base-200 overflow-hidden">
       {/* Skill Hero */}
       <section
-        className="relative w-[80vw] mx-auto h-[50vh] min-h-[500px] rounded-b-[50px] flex flex-col justify-end bg-cover bg-center"
+        className="relative  mx-auto sm:h-[30vh] md:h-[50vh] rounded-b-[80px] flex flex-col justify-end bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
         data-aos="fade-in"
       >
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 rounded-b-[50px] to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 rounded-b-[80px] to-transparent"></div>
         <div className="relative z-10 p-8 md:p-12 text-white max-w-6xl mx-auto w-full">
           <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm mb-3">
             {category}
@@ -90,7 +93,7 @@ const SkillsDetails = () => {
 
       {/* Details Section */}
       <section className="p-8 md:p-16 max-w-4xl mx-auto space-y-8 bg-base-200 pb-32">
-        <h2 className="text-3xl md:text-4xl font-bold" data-aos="fade-up">
+        <h2 className="text-2xl md:text-4xl font-bold" data-aos="fade-up">
           About this Skill
         </h2>
 
@@ -141,8 +144,9 @@ const SkillsDetails = () => {
         <div className="space-y-4 mt-12" data-aos="fade-up">
           <h3 className="text-2xl font-bold">What You'll Learn</h3>
           <ul className="space-y-3 text-lg">
-            {whatYoullLearn.map((outcome) => (
+            {whatYoullLearn.map((outcome, i) => (
               <li
+                key={i}
                 className="flex items-center gap-3"
                 data-aos="fade-right"
                 data-aos-delay="100"
@@ -162,9 +166,16 @@ const SkillsDetails = () => {
 
       {/* Booking Form*/}
       <div
-        data-aos="zoom-in-up"
+        /* data-aos="zoom-in-up"
         data-aos-easing="ease-in-out"
         data-aos-delay="100"
+        data-aos-mirror="true"
+        data-aos-once="false" */
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false"
       >

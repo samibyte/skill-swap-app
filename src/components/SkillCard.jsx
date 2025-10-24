@@ -4,7 +4,17 @@ import { Link } from "react-router";
 const SkillCard = ({ skill }) => {
   const { skillId, skillName, image, rating, price } = skill;
   return (
-    <div className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-0.5 overflow-hidden group">
+    <div
+      data-aos="fade-up"
+      data-aos-offset="200"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-center"
+      className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-0.5 overflow-hidden group"
+    >
       {/* Image with subtle overlay */}
       <div className="relative w-full h-48">
         <img

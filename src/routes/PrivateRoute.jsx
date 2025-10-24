@@ -3,6 +3,7 @@ import { Navigate, useLocation } from "react-router";
 import AuthContext from "../contexts/AuthContext";
 import { HashLoader } from "react-spinners";
 import toast from "react-hot-toast";
+import Loader from "../components/Loader";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
@@ -10,11 +11,7 @@ const PrivateRoute = ({ children }) => {
   const hasShownToast = useRef(false);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[80vh]">
-        <HashLoader />
-      </div>
-    );
+    return <Loader />;
   }
   if (user && user?.email) {
     return children;

@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import ForgotPassword from "../pages/ForgotPassword";
 import SkillsDetails from "../pages/SkillsDetails";
 import PrivateRoute from "./PrivateRoute";
+import Loader from "../components/Loader";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
           const skillData = await res.json();
           return { skillData };
         },
+        hydrateFallbackElement: <Loader />,
       },
       {
         path: "/skills-details/:id",
@@ -34,6 +36,7 @@ const router = createBrowserRouter([
           const skillData = await res.json();
           return { skillData };
         },
+        hydrateFallbackElement: <Loader />,
       },
     ],
   },

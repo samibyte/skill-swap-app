@@ -68,10 +68,10 @@ const StickyStep = ({ step, title, description, images, reverse }) => {
     <div
       className={`relative flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
-      } gap-10 md:gap-20 min-h-[120vh]`}
+      } gap-8 md:gap-20 min-h-[120vh]`}
     >
       {/* Sticky Text Side */}
-      <div className="md:w-1/2 sticky top-1/4 self-start h-fit">
+      <div className="md:w-1/2 sticky top-1/8 md:top-1/4 self-start h-fit">
         <div
           className="bg-base-200/60 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-base-300"
           data-aos="fade-up"

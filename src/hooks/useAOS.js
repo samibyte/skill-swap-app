@@ -8,6 +8,7 @@ const useAOS = (options = {}) => {
 
   const aosOptions = useMemo(
     () => ({
+      disable: "mobile",
       duration: 800,
       easing: "ease-in-out",
       once: false,

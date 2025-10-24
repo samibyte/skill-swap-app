@@ -124,7 +124,7 @@ const ForgotPassword = () => {
 
       <Link
         to="/"
-        className="text-center absolute bottom-12 flex justify-center items-center text-sm text-gray-700"
+        className="text-center absolute bottom-6 lg:bottom-12 flex justify-center items-center text-sm text-gray-700"
       >
         <ArrowLeft /> <p className="hover:underline">Go Back Home</p>
       </Link>

@@ -8,8 +8,12 @@ const TopProviderCard = ({ provider }) => {
       key={skillId}
       className="bg-base-100/70 backdrop-blur-md border border-base-300 rounded-4xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center p-6"
       data-aos="fade-up"
+      data-aos-offset="200"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"
+      data-aos-anchor-placement="top-center"
       data-aos-delay={skillId * 100}
     >
       <img
