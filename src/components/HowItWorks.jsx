@@ -45,7 +45,7 @@ const HowItWorks = () => {
           className="text-3xl md:text-4xl font-bold text-primary"
           data-aos="fade-up"
         >
-          How <span className="text-secondary">SkillSwap</span> Works
+          How <span className="text-secondary">Skill Swap</span> Works
         </h2>
         <p
           className="mt-3 text-base md:text-lg text-base-content/70"

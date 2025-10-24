@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import { Users, Star, BookOpen } from "lucide-react";
 
 import heroImg from "../assets/images/skills-hero-1.jpg";
 import heroImg2 from "../assets/images/skills-hero-2.jpg";
@@ -9,116 +10,94 @@ import heroImg3 from "../assets/images/skills-hero-3.jpg";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// static data
+const slides = [
+  {
+    image: heroImg,
+    title: "Swap Skills, Not Bills",
+    subtitle:
+      "Trade your expertise and learn something new - because learning should never be a luxury.",
+  },
+  {
+    image: heroImg2,
+    title: "Learn, Teach, Repeat",
+    subtitle:
+      "Everyone has something to offer. Discover, connect, and grow together in Skill Swap.",
+  },
+  {
+    image: heroImg3,
+    title: "Build Connections, Not Just Skills",
+    subtitle:
+      "Join a network that values curiosity, creativity, and shared growth.",
+  },
+];
+
 const HeroSlider = () => {
   return (
-    <>
+    <div className="relative w-full h-[30vh] md:h-[60vh] rounded-4xl overflow-hidden">
       <Swiper
-        className="rounded-4xl"
         grabCursor={true}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         loop={true}
-        pagination={{ dynamicBullets: true }}
+        pagination={{ clickable: true, dynamicBullets: true }}
         modules={[Pagination, Autoplay]}
+        className="w-full h-full"
       >
-        <SwiperSlide>
-          <img src={heroImg} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={heroImg2} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={heroImg3} alt="" />
-        </SwiperSlide>
-      </Swiper>
-    </>
-  );
-};
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <section
+              className="relative mx-auto h-full flex flex-col justify-end bg-cover bg-center rounded-4xl"
+              style={{ backgroundImage: `url(${slide.image})` }}
+              data-aos="fade-in"
+            >
+              <div className="absolute inset-0 bg-linear-to-t from-neutral/85 via-black/50 to-transparent rounded-4xl" />
 
-export default HeroSlider;
+              <div className="relative text-left z-10 p-4 md:p-12 text-white max-w-6xl mx-auto w-full">
+                <h1
+                  className="text-3xl md:text-6xl font-bold mb-3"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  {slide.title}
+                </h1>
 
-/* import { Navigation, Pagination, Parallax } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+                <p
+                  className="text-sm md:text-xl text-white/90 max-w-2xl mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  {slide.subtitle}
+                </p>
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-const HeroSlider = () => {
-  return (
-    <div>
-      <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
-        height={800}
-        speed={600}
-        parallax={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <div
-          slot=""
-          className="parallax-bg"
-          style={{
-            backgroundImage:
-              "url(https://i.ibb.co.com/679cDNFD/skill-hero-2.jpg)",
-          }}
-          data-swiper-parallax="-33%"
-        ></div>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Slide 1
-          </div>
-          <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle
-          </div>
-          <div className="text" data-swiper-parallax="-100">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec.
-            </p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Slide 2
-          </div>
-          <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle 2
-          </div>
-          <div className="text" data-swiper-parallax="-100">
-            <p>
-              Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem
-              justo. Integer laoreet magna nec elit suscipit.
-            </p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Slide 3
-          </div>
-          <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle 3
-          </div>
-          <div className="text" data-swiper-parallax="-100">
-            <p>
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec.
-            </p>
-          </div>
-        </SwiperSlide>
+                <div
+                  className="hidden md:flex flex-wrap items-center gap-4 md:gap-6 text-sm md:text-base"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <Users size={18} /> 1,200+ Learners
+                  </span>
+                  <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <Star
+                      size={18}
+                      className="fill-yellow-400 text-yellow-400"
+                    />
+                    4.9 Rating
+                  </span>
+                  <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <BookOpen size={18} /> 300+ Skills Shared
+                  </span>
+                </div>
+              </div>
+            </section>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
 };
 
-export default HeroSlider; */
+export default HeroSlider;

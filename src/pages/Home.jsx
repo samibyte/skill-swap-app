@@ -15,7 +15,7 @@ const Home = () => {
       {/* hero slider */}
       <section
         data-aos="fade-down"
-        className="relative drop-shadow-xl rounded-xl max-w-11/12 md:max-w-7xl md:mb-50 my-20 md:mt-30 h-[30vh]  md:h-[60vh] mx-auto"
+        className="relative drop-shadow-xl max-w-11/12 xl:max-w-7xl md:mb-50 my-20 md:mt-30 mx-auto"
       >
         <HeroSlider />
       </section>

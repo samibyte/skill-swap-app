@@ -55,7 +55,7 @@ const SkillsDetails = () => {
         style={{ backgroundImage: `url(${image})` }}
         data-aos="fade-in"
       >
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 rounded-b-[80px] to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-neutral/70 via-black/40 rounded-b-[80px] to-transparent"></div>
         <div className="relative z-10 p-8 md:p-12 text-white max-w-6xl mx-auto w-full">
           <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm mb-3">
             {category}
