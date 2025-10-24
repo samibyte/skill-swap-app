@@ -166,11 +166,6 @@ const SkillsDetails = () => {
 
       {/* Booking Form*/}
       <div
-        /* data-aos="zoom-in-up"
-        data-aos-easing="ease-in-out"
-        data-aos-delay="100"
-        data-aos-mirror="true"
-        data-aos-once="false" */
         data-aos="fade-up"
         data-aos-offset="200"
         data-aos-delay="50"

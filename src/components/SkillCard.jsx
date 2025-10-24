@@ -12,7 +12,6 @@ const SkillCard = ({ skill }) => {
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"
-      data-aos-anchor-placement="top-center"
       className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-0.5 overflow-hidden group"
     >
       {/* Image with subtle overlay */}
