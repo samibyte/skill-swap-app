@@ -45,8 +45,7 @@ const Login = () => {
       const user = userCred.user;
       setUser(user);
       toast.success("Login successful!");
-
-      navigate(location.state ? location.state : "/");
+      navigate(location.state?.from || "/");
     } catch (err) {
       // console.log(err);
 
@@ -89,8 +88,7 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
-
-      navigate(location.state ? location.state : "/");
+      navigate(location.state?.from || "/");
     } catch (err) {
       toast.error(err.message || "Google sign-in failed");
     } finally {
