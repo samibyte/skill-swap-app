@@ -9,12 +9,12 @@ const TopRatedProviders = ({ skillsData }) => {
 
   return (
     <div
-      className="my-48 bg-linear-to-b from-base-100 via-base-200 to-base-100 overflow-hidden"
+      className="my-20 sm:my-48 bg-linear-to-b from-base-100 via-base-200 to-base-100 overflow-hidden"
       data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
     >
       <h2
-        className="md:text-5xl text-3xl font-bold text-center mb-25 tracking-tight poppins-font"
+        className="md:text-5xl text-3xl font-bold text-center mb-16 sm:mb-25 tracking-tight poppins-font"
         data-aos="fade-in"
         data-aos-mirror="true"
         data-aos-once="false"

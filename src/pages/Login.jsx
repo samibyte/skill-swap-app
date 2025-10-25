@@ -96,7 +96,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
+    <div className="flex flex-col min-h-screen relative bg-base-100 items-center justify-center">
       <title>SkillSwap - Login</title>
       <div className="w-full max-w-md rounded-lg p-6">
         {/* login text and logo */}
@@ -261,7 +261,7 @@ const Login = () => {
       </div>
       <Link
         to="/"
-        className="text-center absolute bottom-6 lg:bottom-12 flex justify-center items-center text-sm text-gray-700"
+        className="text-center mb-2 2xl:mb-0 2xl:absolute bottom-6 lg:bottom-12 flex justify-center items-center text-sm text-gray-700"
       >
         <ArrowLeft /> <p className=" hover:underline">Go Back Home</p>
       </Link>
