@@ -9,11 +9,13 @@ import SkillsDetails from "../pages/SkillsDetails";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../components/Loader";
 import MyProfile from "../pages/MyProfile";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+
     children: [
       {
         index: true,
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
         Component: ForgotPassword,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 

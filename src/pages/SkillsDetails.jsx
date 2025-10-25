@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { User, Star, Calendar, CircleCheckBig, Mail } from "lucide-react";
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useParams } from "react-router";
 import toast from "react-hot-toast";
 import useAOS from "../hooks/useAOS";
 
@@ -22,7 +22,20 @@ const SkillsDetails = () => {
   }, [skillData, id]);
 
   if (!skillDetails) {
-    return <h1 className="text-center py-20 text-xl">Loading...</h1>;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center">
+        <h1 className="text-4xl font-bold mb-2">Skill Not Found</h1>
+        <p className="mb-4">
+          The skill you are looking for does not exist or has been removed.
+        </p>
+        <Link
+          to="/"
+          className="px-5 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-focus"
+        >
+          Go Back Home
+        </Link>
+      </div>
+    );
   }
 
   const {
