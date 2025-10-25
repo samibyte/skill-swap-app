@@ -49,11 +49,11 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <section
-              className="relative mx-auto h-full flex flex-col justify-end bg-cover bg-center rounded-4xl"
+              className="relative mx-auto h-full flex flex-col justify-end bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.image})` }}
               data-aos="fade-in"
             >
-              <div className="absolute inset-0 bg-linear-to-t from-neutral/85 via-black/50 to-transparent rounded-4xl" />
+              <div className="absolute inset-0 bg-linear-to-t from-neutral/85 via-black/50 to-black/10 rounded-4xl" />
 
               <div className="relative text-left z-10 p-4 md:p-12 text-white max-w-6xl mx-auto w-full">
                 <h1

@@ -2,9 +2,12 @@ import { use } from "react";
 import AuthContext from "../contexts/AuthContext";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
+import ThemeContext from "../contexts/ThemeContext";
 
 const UserAvatarDropdown = () => {
   const { user, signOutUser, setLoading } = use(AuthContext);
+
+  const { theme, setTheme } = use(ThemeContext);
 
   const handleSignOut = async () => {
     try {
@@ -56,16 +59,16 @@ const UserAvatarDropdown = () => {
             <summary>Settings</summary>
             <ul>
               <li>
-                <label className="flex gap-2 cursor-pointer items-center">
-                  <input
-                    type="radio"
-                    name="theme-radios"
-                    className="radio hidden radio-sm theme-controller"
-                    value="light"
-                  />
-                  {/* sun icon */}
+                <label
+                  onClick={() => setTheme("light")}
+                  className={`flex gap-2 cursor-pointer items-center p-1 rounded-lg transition-all duration-200 ${
+                    theme === "light"
+                      ? "bg-base-200 text-primary font-medium"
+                      : "hover:bg-base-200"
+                  }`}
+                >
                   <svg
-                    className="swap-off h-5 w-5 fill-current"
+                    className="h-5 w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                   >
@@ -74,17 +77,18 @@ const UserAvatarDropdown = () => {
                   Light Mode
                 </label>
               </li>
+
               <li>
-                <label className="flex gap-2 cursor-pointer items-center">
-                  <input
-                    type="radio"
-                    name="theme-radios"
-                    className="radio hidden radio-sm theme-controller"
-                    value="skillswapdark"
-                  />
-                  {/* moon icon */}
+                <label
+                  onClick={() => setTheme("skillswapdark")}
+                  className={`flex gap-2 cursor-pointer items-center p-1 rounded-lg transition-all duration-200 ${
+                    theme === "skillswapdark"
+                      ? "bg-base-200 text-primary font-medium"
+                      : "hover:bg-base-200"
+                  }`}
+                >
                   <svg
-                    className="swap-on h-5 w-5 fill-current"
+                    className="h-5 w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                   >
@@ -96,7 +100,9 @@ const UserAvatarDropdown = () => {
             </ul>
           </details>
         </li>
+
         <div className="divider"></div>
+
         <li>
           <Link
             onClick={handleSignOut}
