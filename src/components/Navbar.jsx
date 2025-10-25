@@ -99,7 +99,7 @@ const Navbar = () => {
         <Link className="flex gap-2 items-center">
           <img className="w-12 sm:w-16 " src={logo} alt="" />
           <h1 className="poppins-font md:text-2xl hidden sm:inline-block font-bold">
-            Skill Swap
+            Skill <span className="text-secondary">Swap</span>
           </h1>
         </Link>
       </div>

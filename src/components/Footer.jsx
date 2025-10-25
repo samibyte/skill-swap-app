@@ -7,6 +7,10 @@ const Footer = () => {
         <img className="w-25" src={logo} alt="" />
         <p className="font-semibold text-2xl text-secondary">Skill Swap</p>
         <p className="opacity-80">A Local Skill Exchange Platform</p>
+        <p className="opacity-80">support@skillswap.io</p>
+        <p className="opacity-80">
+          Address: 128 Willow Lane, Unit 4B, San Jose, CA 95112
+        </p>
       </aside>
       <nav>
         <h6 className="footer-title">Company</h6>
