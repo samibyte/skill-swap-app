@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState(preFilledEmail);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const [loadingText, setLoadingText] = useState("");
 
   const handleReset = async (e) => {
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
       setError("Please enter a valid email.");
       return;
     }
-    setLoading(true);
+    setLoadingBtn(true);
     try {
       await resetPassWithEmail(email);
       setMessage("If this email is registered, a reset link has been sent.");
@@ -34,11 +34,11 @@ const ForgotPassword = () => {
       setTimeout(() => {
         // Redirect to Gmail
         window.open("https://mail.google.com", "_blank");
-        setLoading(false);
       }, 2500);
     } catch (err) {
       toast.error(err.message || "Something went wrong. Please try again.");
-      setLoading(false);
+    } finally {
+      setLoadingBtn(false);
     }
   };
 
@@ -89,10 +89,10 @@ const ForgotPassword = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loadingBtn}
             className="flex btn w-full items-center justify-center rounded-lg bg-primary text-white hover:bg-neutral disabled:bg-neutral-300"
           >
-            {loading ? (
+            {loadingBtn ? (
               <div className="flex gap-2">
                 <LoaderCircle className="animate-spin" size={20} />
                 <p>{loadingText}</p>

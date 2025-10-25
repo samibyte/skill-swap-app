@@ -9,11 +9,12 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { setUser, signInWithEmail, signInWithGoogle } = use(AuthContext);
+  const { setUser, setLoading, signInWithEmail, signInWithGoogle } =
+    use(AuthContext);
 
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
-  const [loading, setLoading] = useState(false);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
@@ -37,13 +38,14 @@ const Login = () => {
       return;
     }
 
-    setLoading(true);
+    setLoadingBtn(true);
 
     try {
       const userCred = await signInWithEmail(email, password);
       const user = userCred.user;
       setUser(user);
       toast.success("Login successful!");
+
       navigate(location.state ? location.state : "/");
     } catch (err) {
       // console.log(err);
@@ -75,9 +77,10 @@ const Login = () => {
       }
 
       toast.error(errorMessage);
+    } finally {
+      setLoadingBtn(false);
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const handleGoogleSignIn = async () => {
@@ -86,9 +89,12 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
+
       navigate(location.state ? location.state : "/");
     } catch (err) {
       toast.error(err.message || "Google sign-in failed");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -197,10 +203,10 @@ const Login = () => {
           {/* Sign in Button */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loadingBtn}
             className="flex btn w-full items-center justify-center rounded-lg bg-primary text-white hover:bg-neutral disabled:bg-neutral-300"
           >
-            {loading ? (
+            {loadingBtn ? (
               <LoaderCircle className="animate-spin" size={20} />
             ) : (
               "Sign in"

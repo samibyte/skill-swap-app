@@ -1,4 +1,4 @@
-import { use, useRef } from "react";
+import { use, useEffect, useRef } from "react";
 import { Navigate, useLocation } from "react-router";
 import AuthContext from "../contexts/AuthContext";
 import toast from "react-hot-toast";
@@ -7,25 +7,27 @@ import Loader from "../components/Loader";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
   const location = useLocation();
-  const hasShownToast = useRef(false);
+  const lastToastPath = useRef(null);
 
-  if (loading) {
-    return <Loader />;
-  }
-  if (user && user?.email) {
-    return children;
-  } else {
-    if (!hasShownToast.current) {
-      if (location.pathname === "/my-profile") {
-        toast.error("Please login to view profile");
-      } else {
-        toast.error("Please login to view details");
-      }
+  useEffect(() => {
+    if (!loading && !user && lastToastPath.current !== location.pathname) {
+      const msg =
+        location.pathname === "/my-profile"
+          ? "Please login to view profile"
+          : "Please login to view details";
 
-      hasShownToast.current = true;
+      toast.error(msg);
+      lastToastPath.current = location.pathname;
     }
-    return <Navigate state={location.pathname} to="/auth/login" replace />;
-  }
+  }, [user, loading, location.pathname]);
+
+  if (loading) return <Loader />;
+
+  if (user && user.email) return children;
+
+  return (
+    <Navigate to="/auth/login" state={{ from: location.pathname }} replace />
+  );
 };
 
 export default PrivateRoute;

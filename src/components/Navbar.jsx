@@ -3,9 +3,22 @@ import logo from "/logo.png";
 import { use } from "react";
 import AuthContext from "../contexts/AuthContext";
 import UserAvatarDropdown from "./UserAvatarDropdown";
+import { ClipLoader, PropagateLoader } from "react-spinners";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser, loading, setLoading } = use(AuthContext);
+
+  const handleSignOut = async () => {
+    try {
+      await signOutUser();
+      toast.success("Signed out successfully");
+    } catch (err) {
+      toast.error(err.message || "Couldn't sign out, try again");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="navbar md:px-12 xl:px-30 bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
@@ -141,9 +154,11 @@ const Navbar = () => {
             </svg>
           </label>
 
-          {user ? (
+          {loading ? (
+            <ClipLoader color="#365a73" size={30} />
+          ) : user ? (
             <>
-              <Link onClick={() => signOutUser()} className="btn">
+              <Link onClick={handleSignOut} className="btn">
                 Log Out
               </Link>
               <UserAvatarDropdown />

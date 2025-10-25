@@ -1,9 +1,21 @@
 import { use } from "react";
 import AuthContext from "../contexts/AuthContext";
 import { Link } from "react-router";
+import toast from "react-hot-toast";
 
 const UserAvatarDropdown = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser, setLoading } = use(AuthContext);
+
+  const handleSignOut = async () => {
+    try {
+      await signOutUser();
+      toast.success("Signed out successfully");
+    } catch (err) {
+      toast.error(err.message || "Couldn't sign out, try again");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const displayName = user?.displayName;
   const photo =
@@ -87,7 +99,7 @@ const UserAvatarDropdown = () => {
         <div className="divider"></div>
         <li>
           <Link
-            onClick={() => signOutUser()}
+            onClick={handleSignOut}
             className="hover:bg-error hover:text-error-content transition-all duration-200 rounded-xl"
           >
             Logout

@@ -16,8 +16,13 @@ import toast from "react-hot-toast";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { createUser, updateUserProfile, setUser, signInWithGoogle } =
-    use(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    setUser,
+    setLoading,
+    signInWithGoogle,
+  } = use(AuthContext);
 
   const [userFormData, setUserFormData] = useState({
     name: "",
@@ -30,7 +35,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [loading, setLoading] = useState(false);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
@@ -69,7 +74,7 @@ const Signup = () => {
     }
 
     try {
-      setLoading(true);
+      setLoadingBtn(true);
       const userCred = await createUser(email, password);
       const user = userCred.user;
       // console.log(user);
@@ -98,6 +103,7 @@ const Signup = () => {
 
       toast.error(errorMessage);
     } finally {
+      setLoadingBtn(false);
       setLoading(false);
     }
   };
@@ -108,9 +114,12 @@ const Signup = () => {
       const user = result.user;
       setUser(user);
       toast.success("Signed in successfully!");
+      setLoading(false);
       navigate("/");
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message || "Google sign-in failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -272,10 +281,10 @@ const Signup = () => {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={loadingBtn}
             className="flex btn w-full items-center justify-center rounded-lg bg-primary text-white hover:bg-neutral disabled:bg-neutral-300"
           >
-            {loading ? (
+            {loadingBtn ? (
               <LoaderCircle className="animate-spin" size={20} />
             ) : (
               "Register"
