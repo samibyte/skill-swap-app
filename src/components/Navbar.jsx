@@ -19,13 +19,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -57,7 +56,7 @@ const Navbar = () => {
             </li>
             <li className="group hover:cursor-pointer">
               <NavLink
-                to="/profile"
+                to="/my-profile"
                 className={({ isActive }) =>
                   `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
      ${isActive ? "text-secondary" : "text-neutral"}`

@@ -88,7 +88,7 @@ const Login = () => {
       toast.success("Signed in successfully!");
       navigate(location.state ? location.state : "/");
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message || "Google sign-in failed");
     }
   };
   return (
@@ -121,6 +121,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
+                id="email"
                 placeholder="Enter your email"
                 value={userFormData.email}
                 onChange={handleChange}
@@ -150,6 +151,9 @@ const Login = () => {
               </span>
               <div
                 onClick={() => setShowPass(!showPass)}
+                aria-label={showPass ? "Hide password" : "Show password"}
+                role="button"
+                tabIndex={0}
                 className="absolute right-3 hover:cursor-pointer hover:text-neutral text-neutral-500"
               >
                 {showPass ? (
@@ -165,6 +169,7 @@ const Login = () => {
               <input
                 type={showPass ? "text" : "password"}
                 name="password"
+                id="password"
                 placeholder="Enter your password"
                 value={userFormData.password}
                 onChange={handleChange}

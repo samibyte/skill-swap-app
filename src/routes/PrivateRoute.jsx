@@ -24,7 +24,7 @@ const PrivateRoute = ({ children }) => {
 
       hasShownToast.current = true;
     }
-    return <Navigate state={location.pathname} to="/auth/login" />;
+    return <Navigate state={location.pathname} to="/auth/login" replace />;
   }
 };
 

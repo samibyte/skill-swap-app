@@ -118,7 +118,7 @@ const Signup = () => {
     <div className="flex min-h-screen relative bg-base-100 items-center justify-center">
       <title>SkillSwap - Signup</title>
       <div className="w-full max-w-md rounded-lg  p-6">
-        {/* login text and logo */}
+        {/* sign up text and logo */}
         <div className="mb-4 flex justify-center">
           <img className="w-16" src={logo} alt="skill swap logo" />
         </div>
@@ -144,6 +144,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="name"
+                id="name"
                 placeholder="Enter your name"
                 value={userFormData.name}
                 onChange={handleChange}
@@ -162,7 +163,7 @@ const Signup = () => {
           {/* photoURL */}
           <div className="mb-6">
             <label
-              htmlFor="name"
+              htmlFor="photo"
               className="mb-1.5 block text-sm font-medium text-neutral-700"
             >
               Photo
@@ -174,6 +175,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="photo"
+                id="photo"
                 placeholder="Enter your photo URL (optional)."
                 value={userFormData.photo}
                 onChange={handleChange}
@@ -204,6 +206,7 @@ const Signup = () => {
               <input
                 type="email"
                 name="email"
+                id="email"
                 placeholder="Enter your email"
                 value={userFormData.email}
                 onChange={handleChange}
@@ -233,6 +236,9 @@ const Signup = () => {
               </span>
               <div
                 onClick={() => setShowPass(!showPass)}
+                aria-label={showPass ? "Hide password" : "Show password"}
+                role="button"
+                tabIndex={0}
                 className="absolute right-3 hover:cursor-pointer hover:text-neutral text-neutral-500"
               >
                 {showPass ? (
@@ -248,6 +254,7 @@ const Signup = () => {
               <input
                 type={showPass ? "text" : "password"}
                 name="password"
+                id="password"
                 placeholder="Enter your password"
                 value={userFormData.password}
                 onChange={handleChange}
@@ -312,7 +319,7 @@ const Signup = () => {
           </button>
         </form>
 
-        {/* Sign up */}
+        {/* login */}
         <div className="mt-4 text-center">
           <span className="text-sm text-neutral-600">
             Already have an account?{" "}

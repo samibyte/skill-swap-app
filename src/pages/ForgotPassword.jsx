@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
   const location = useLocation();
-  const preFilledEmail = location.state.email;
+  const preFilledEmail = location.state?.email || "";
 
   const { resetPassWithEmail } = use(AuthContext);
   const [email, setEmail] = useState(preFilledEmail);
@@ -74,6 +74,7 @@ const ForgotPassword = () => {
               <input
                 type="email"
                 name="email"
+                id="email"
                 placeholder="Enter your registered email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
