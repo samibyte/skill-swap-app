@@ -129,7 +129,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 value={userFormData.email}
                 onChange={handleChange}
-                className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
+                className={`w-full placeholder:opacity-60 rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.email
                     ? "border-red-500 ring-red-200"
                     : "border-neutral-300"
@@ -177,7 +177,7 @@ const Login = () => {
                 placeholder="Enter your password"
                 value={userFormData.password}
                 onChange={handleChange}
-                className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
+                className={`w-full placeholder:opacity-60 rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   errors.password
                     ? "border-red-500 ring-red-200"
                     : "border-neutral-300"

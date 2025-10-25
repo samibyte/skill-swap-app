@@ -78,7 +78,7 @@ const ForgotPassword = () => {
                 placeholder="Enter your registered email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
+                className={`w-full placeholder:opacity-60 rounded-lg border px-4 py-2.5 pl-10 focus:ring-2 focus:ring-blue-200 ${
                   error ? "border-red-500 ring-red-200" : "border-neutral-300"
                 }`}
               />

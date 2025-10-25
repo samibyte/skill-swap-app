@@ -107,7 +107,7 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-neutral hover:text-primary"
+          className="absolute top-4 right-4 text-primary hover:text-primary"
         >
           <X className="w-5 h-5" />
         </button>
@@ -122,12 +122,12 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
           <div className="mb-6">
             <label
               htmlFor="name"
-              className="mb-1.5 block text-sm font-medium text-neutral-700"
+              className="mb-1.5 block text-sm font-medium text-primary-700"
             >
               Name
             </label>
             <div className="relative flex items-center">
-              <span className="absolute left-3 text-neutral-500">
+              <span className="absolute left-3 text-primary-500">
                 <UserRound size={20} />
               </span>
               <input
@@ -146,12 +146,12 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
           <div className="mb-6">
             <label
               htmlFor="photo"
-              className="mb-1.5 block text-sm font-medium text-neutral-700"
+              className="mb-1.5 block text-sm font-medium text-primary-700"
             >
               Photo
             </label>
             <div className="relative flex items-center">
-              <span className="absolute left-3 text-neutral-500">
+              <span className="absolute left-3 text-primary-500">
                 <CircleUserRound size={20} />
               </span>
               <input
@@ -169,12 +169,12 @@ const ProfileUpdateModal = ({ isOpen, onClose }) => {
           <div className="mb-6">
             <label
               htmlFor="photo"
-              className="mb-1.5 block text-sm font-medium text-neutral-700"
+              className="mb-1.5 block text-sm font-medium text-primary-700"
             >
               Bio
             </label>
             <div className="relative flex items-center">
-              <span className="absolute top-3 left-3 text-neutral-500">
+              <span className="absolute top-3 left-3 text-primary-500">
                 <UserRoundPen size={20} />
               </span>
               <textarea

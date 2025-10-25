@@ -4,12 +4,11 @@
 
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, skillswapdark;
+  themes: light, skillswapdark --default;
 }
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: true;
 
   --color-base-100: #f9fafb;
   --color-base-200: #f3f4f6;
@@ -42,6 +41,7 @@
 
 @plugin "daisyui/theme" {
   name: "skillswapdark";
+  default: true;
   color-scheme: dark;
 
   --color-base-100: #0b1120;
