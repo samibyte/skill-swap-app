@@ -1,9 +1,9 @@
 import useAOS from "../hooks/useAOS";
 import TopProviderCard from "./TopProviderCard";
 
-const TopRatedProviders = ({ skillData }) => {
-  useAOS({ duration: 1200, once: true });
-  const topProviders = skillData
+const TopRatedProviders = ({ skillsData }) => {
+  useAOS({ duration: 1200, once: false });
+  const topProviders = skillsData
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
 

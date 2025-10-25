@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         Component: Home,
         loader: async () => {
           const res = await fetch("/skillsListing.json");
-          const skillData = await res.json();
-          return { skillData };
+          const skillsData = await res.json();
+          return { skillsData };
         },
         hydrateFallbackElement: <Loader />,
       },

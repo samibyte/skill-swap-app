@@ -78,7 +78,7 @@ const HeroSlider = () => {
                   data-aos-delay="400"
                 >
                   <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <Users size={18} /> 1,200+ Learners
+                    <Users size={18} /> 4700+ Learners
                   </span>
                   <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                     <Star
@@ -88,7 +88,7 @@ const HeroSlider = () => {
                     4.9 Rating
                   </span>
                   <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <BookOpen size={18} /> 300+ Skills Shared
+                    <BookOpen size={18} /> 6300+ Skills Shared
                   </span>
                 </div>
               </div>

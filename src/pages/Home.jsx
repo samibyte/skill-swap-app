@@ -4,11 +4,12 @@ import SkillCard from "../components/SkillCard";
 import TopRatedProviders from "../components/TopRatedProviders";
 import HowItWorks from "../components/HowItWorks";
 import useAOS from "../hooks/useAOS";
+import SwapsInAction from "../components/SwapsInAction";
 
 const Home = () => {
   useAOS({ duration: 1200, once: true });
-  const { skillData } = useLoaderData();
-  // console.log(skillData);
+  const { skillsData } = useLoaderData();
+  // console.log(skillsData);
 
   return (
     <div>
@@ -26,16 +27,19 @@ const Home = () => {
           Popular <span className="text-secondary">Skills</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 py-10 sm:py-20">
-          {skillData.map((skill) => (
+          {skillsData.map((skill) => (
             <SkillCard key={skill.skillId} skill={skill} />
           ))}
         </div>
       </section>
       <section>
-        <TopRatedProviders skillData={skillData} />
+        <TopRatedProviders skillsData={skillsData} />
       </section>
       <section>
         <HowItWorks />
+      </section>
+      <section>
+        <SwapsInAction />
       </section>
     </div>
   );
