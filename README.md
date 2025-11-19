@@ -7,8 +7,6 @@
 <p align="center">
 
   <img alt="Stars" src="https://img.shields.io/github/stars/samibyte/skillswap?style=social">
-  
-
 
   <a href="https://github.com/adnanakanda">
     <img alt="made by samiByte" src="https://img.shields.io/badge/made%20by-samibyte-0a66c2">
@@ -112,10 +110,10 @@ Before running the project, make sure you have installed:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/yourusername/skillswap
+$ git clone https://github.com/samibyte/skill-swap-app.git
 
 # Navigate into the project directory
-$ cd skillswap
+$ cd skill-swap-app
 
 # Install dependencies
 $ npm install
