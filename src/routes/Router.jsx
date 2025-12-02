@@ -10,6 +10,7 @@ import Error from "../pages/Error";
 import Home from "../pages/Home/Home";
 import SkillsDetails from "../pages/SkillDetails/SkillDetails";
 import MyProfile from "../pages/Dashboard/MyProfile";
+import ExploreSkills from "../pages/Explore/ExlploreSkills";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,11 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: async () => {
-          const res = await fetch("/skillsListing.json");
-          const skillsData = await res.json();
-          return { skillsData };
-        },
         hydrateFallbackElement: <Loader />,
+      },
+      {
+        path: "/skills",
+        Component: ExploreSkills,
       },
       {
         path: "/skills-details/:id",

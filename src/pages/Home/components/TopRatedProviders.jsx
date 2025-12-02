@@ -1,8 +1,18 @@
 import useAOS from "../../../hooks/useAOS";
 import TopProviderCard from "../../../components/TopProviderCard";
+import Loader from "../../../components/Loader";
 
 const TopRatedProviders = ({ skillsData }) => {
   useAOS({ duration: 1200, once: false });
+
+  if (!skillsData) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
+
   const topProviders = skillsData
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 4);

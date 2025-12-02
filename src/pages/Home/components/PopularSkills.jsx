@@ -7,7 +7,7 @@ const PopularSkills = ({ skillsData }) => {
         Popular <span className="text-secondary">Skills</span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-10 py-10 sm:py-20">
-        {skillsData.map((skill) => (
+        {skillsData?.map((skill) => (
           <SkillCard key={skill.skillId} skill={skill} />
         ))}
       </div>

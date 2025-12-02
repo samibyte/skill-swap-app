@@ -1,16 +1,23 @@
-import { useLoaderData } from "react-router";
 import HeroSlider from "./components/HeroSlider";
 import TopRatedProviders from "./components/TopRatedProviders";
 import HowItWorks from "./components/HowItWorks";
 import useAOS from "../../hooks/useAOS";
 import SwapsInAction from "./components/SwapsInAction";
 import PopularSkills from "./components/PopularSkills";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   useAOS({ duration: 1200, once: true });
-  const { skillsData } = useLoaderData();
-  // console.log(skillsData);
 
+  const [skillsData, setSkillsData] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const result = await fetch("/skillsListing.json");
+      const data = await result.json();
+      setSkillsData(data);
+    })();
+  }, []);
   return (
     <div>
       {/* hero slider */}
