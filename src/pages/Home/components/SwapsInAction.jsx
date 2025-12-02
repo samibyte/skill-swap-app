@@ -1,6 +1,6 @@
 import { ArrowRightLeft, Users, TrendingUp, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
-import useAOS from "../hooks/useAOS";
+import useAOS from "../../../hooks/useAOS";
 
 // stats data
 const stats = [
@@ -32,7 +32,7 @@ const SwapsInAction = () => {
 
   return (
     <section className="py-16 md:py-24 bg-base-100">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+      <div className="container mx-auto max-w-9/12">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Swaps in <span className="text-secondary">Action</span>

@@ -3,7 +3,7 @@ import { use, useState } from "react";
 import logo from "/logo.png";
 import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../../contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();

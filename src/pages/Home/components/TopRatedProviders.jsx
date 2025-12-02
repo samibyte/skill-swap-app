@@ -1,5 +1,5 @@
-import useAOS from "../hooks/useAOS";
-import TopProviderCard from "./TopProviderCard";
+import useAOS from "../../../hooks/useAOS";
+import TopProviderCard from "../../../components/TopProviderCard";
 
 const TopRatedProviders = ({ skillsData }) => {
   useAOS({ duration: 1200, once: false });
@@ -24,7 +24,7 @@ const TopRatedProviders = ({ skillsData }) => {
       </h2>
 
       <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 max-w-11/12 xl:max-w-8/12 mx-auto"
+        className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 max-w-11/12 xl:max-w-9/12 mx-auto"
         data-aos="zoom-in-up"
         data-aos-offset="200"
         data-aos-delay="50"

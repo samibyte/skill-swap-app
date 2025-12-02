@@ -10,11 +10,11 @@ import {
   PlusCircle,
   Search,
 } from "lucide-react";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../../contexts/AuthContext";
 import { Link } from "react-router";
-import ProfileUpdateModal from "../components/ProfileUpdateModal";
+import ProfileUpdateModal from "../../components/ProfileUpdateModal";
 import { doc, onSnapshot } from "firebase/firestore";
-import useAOS from "../hooks/useAOS";
+import useAOS from "../../hooks/useAOS";
 
 // dummy data
 

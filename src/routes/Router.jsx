@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
 import AuthLayout from "../layouts/AuthLayout";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import ForgotPassword from "../pages/ForgotPassword";
-import SkillsDetails from "../pages/SkillsDetails";
+import Login from "../pages/Auth/Login";
+import Signup from "../pages/Auth/Signup";
+import ForgotPassword from "../pages/Auth/ForgotPassword";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../components/Loader";
-import MyProfile from "../pages/MyProfile";
 import Error from "../pages/Error";
+import Home from "../pages/Home/Home";
+import SkillsDetails from "../pages/SkillDetails/SkillDetails";
+import MyProfile from "../pages/Dashboard/MyProfile";
 
 const router = createBrowserRouter([
   {

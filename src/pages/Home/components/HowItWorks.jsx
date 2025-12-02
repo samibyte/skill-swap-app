@@ -1,5 +1,5 @@
-import useAOS from "../hooks/useAOS";
-import StickyStep from "./StickyStep";
+import useAOS from "../../../hooks/useAOS";
+import StickyStep from "../../../components/StickyStep";
 
 const steps = [
   {
@@ -40,7 +40,7 @@ const HowItWorks = () => {
   useAOS({ duration: 900, once: true });
 
   return (
-    <section className="bg-base-100 py-20 px-4 md:px-8 text-base-content">
+    <section className="bg-base-100 py-20 text-base-content">
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
         <h2
@@ -59,7 +59,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Steps */}
-      <div className="flex flex-col gap-20 max-w-6xl mx-auto">
+      <div className="flex flex-col gap-20 max-w-9/12 mx-auto">
         {steps.map((step, index) => (
           <StickyStep key={index} step={step} reverse={index % 2 === 1} />
         ))}

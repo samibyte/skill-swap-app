@@ -11,7 +11,7 @@ import {
 import { use, useState } from "react";
 import logo from "/logo.png";
 import { Link, useNavigate } from "react-router";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const Signup = () => {

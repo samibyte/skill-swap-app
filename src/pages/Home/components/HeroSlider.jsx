@@ -2,9 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Users, Star, BookOpen } from "lucide-react";
 
-import heroImg from "../assets/images/skills-hero-1.jpg";
-import heroImg2 from "../assets/images/skills-hero-2.jpg";
-import heroImg3 from "../assets/images/skills-hero-3.jpg";
+import heroImg from "../../../assets/images/skills-hero-1.jpg";
+import heroImg2 from "../../../assets/images/skills-hero-2.jpg";
+import heroImg3 from "../../../assets/images/skills-hero-3.jpg";
 
 // Import Swiper styles
 import "swiper/css";

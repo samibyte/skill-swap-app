@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router";
-import HeroSlider from "../components/HeroSlider";
-import SkillCard from "../components/SkillCard";
-import TopRatedProviders from "../components/TopRatedProviders";
-import HowItWorks from "../components/HowItWorks";
-import useAOS from "../hooks/useAOS";
-import SwapsInAction from "../components/SwapsInAction";
+import HeroSlider from "./components/HeroSlider";
+import SkillCard from "../../components/SkillCard";
+import TopRatedProviders from "./components/TopRatedProviders";
+import HowItWorks from "./components/HowItWorks";
+import useAOS from "../../hooks/useAOS";
+import SwapsInAction from "./components/SwapsInAction";
 
 const Home = () => {
   useAOS({ duration: 1200, once: true });
@@ -16,13 +16,13 @@ const Home = () => {
       {/* hero slider */}
       <section
         data-aos="fade-down"
-        className="relative drop-shadow-xl max-w-11/12 xl:max-w-7xl md:mb-50 my-20 md:mt-30 mx-auto"
+        className="max-w-9/12 mx-auto relative drop-shadow-xl md:mb-50 my-20 md:mt-30"
       >
         <HeroSlider />
       </section>
 
       {/* popular skills section  */}
-      <section className="mx-auto w-11/12 md:max-w-9/12">
+      <section className="max-w-9/12 mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center poppins-font">
           Popular <span className="text-secondary">Skills</span>
         </h2>

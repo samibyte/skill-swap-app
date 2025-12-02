@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { User, Star, Calendar, CircleCheckBig, Mail } from "lucide-react";
 import { Link, useLoaderData, useParams } from "react-router";
 import toast from "react-hot-toast";
-import useAOS from "../hooks/useAOS";
+import useAOS from "../../hooks/useAOS";
 
 const SkillsDetails = () => {
   useAOS({ duration: 1200, once: true });

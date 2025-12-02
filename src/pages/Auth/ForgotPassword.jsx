@@ -2,7 +2,7 @@ import { ArrowLeft, LoaderCircle, Mail } from "lucide-react";
 import { use, useState } from "react";
 import { Link, useLocation } from "react-router";
 import logo from "/logo.png";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
