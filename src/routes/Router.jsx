@@ -11,6 +11,7 @@ import Home from "../pages/Home/Home";
 import SkillsDetails from "../pages/SkillDetails/SkillDetails";
 import MyProfile from "../pages/Dashboard/MyProfile";
 import ExploreSkills from "../pages/Explore/ExlploreSkills";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             <MyProfile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs,
       },
     ],
   },
