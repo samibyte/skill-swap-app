@@ -24,8 +24,33 @@ const Navbar = () => {
     }
   };
 
+  const navLinks = [
+    {
+      name: "Home",
+      route: "/",
+    },
+    {
+      name: "Skills",
+      route: "/skills",
+    },
+
+    {
+      name: "Contact",
+      route: "/contact",
+    },
+    {
+      name: "Support",
+      route: "/support",
+    },
+    {
+      name: "About Us",
+      route: "/about-us",
+    },
+  ];
+
   return (
     <div className="navbar md:px-12 xl:px-30 bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
+      {/* Left side */}
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,52 +73,20 @@ const Navbar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-36 p-2 shadow"
           >
-            <li className="group hover:cursor-pointer">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
+            {navLinks.map((item) => (
+              <li className="group hover:cursor-pointer">
+                <NavLink
+                  to={item.route}
+                  className={({ isActive }) =>
+                    `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
                 ${isActive ? "text-secondary" : "text-neutral"}`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    Home
-                    <span
-                      className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
-                ${
-                  isActive
-                    ? "w-full bg-secondary"
-                    : "w-0 bg-secondary group-hover:w-full"
-                }`}
-                    ></span>
-                  </>
-                )}
-              </NavLink>
-            </li>
-            <li className="group hover:cursor-pointer">
-              <NavLink
-                to="/my-profile"
-                className={({ isActive }) =>
-                  `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
-     ${isActive ? "text-secondary" : "text-neutral"}`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    My Profile
-                    <span
-                      className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out
-          ${
-            isActive
-              ? "w-full bg-secondary"
-              : "w-0 bg-secondary group-hover:w-full"
-          }`}
-                    ></span>
-                  </>
-                )}
-              </NavLink>
-            </li>
+                  }
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out w-0 group-hover:w-full bg-secondary"></span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <Link className="flex gap-2 items-center">
@@ -103,72 +96,62 @@ const Navbar = () => {
           </h1>
         </Link>
       </div>
-      <div className="navbar-end flex gap-3 sm:gap-8">
-        {/* nav links */}
-        <ul className="hidden lg:flex">
+      {/* nav links */}
+
+      <ul className="hidden navbar-center gap-4 lg:flex">
+        {navLinks.map((item) => (
           <li className="group hover:cursor-pointer">
             <NavLink
-              to="/"
+              to={item.route}
               className={({ isActive }) =>
                 `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
                 ${isActive ? "text-secondary" : "text-neutral"}`
               }
             >
-              Home
+              {item.name}
               <span className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out w-0 group-hover:w-full bg-secondary"></span>
             </NavLink>
           </li>
-          <li className="group hover:cursor-pointer">
-            <NavLink
-              to="/my-profile"
-              className={({ isActive }) =>
-                `relative p-2 text-lg font-medium transition-all duration-300 ease-in-out md:text-base
-                ${isActive ? "text-secondary" : "text-neutral"}`
-              }
-            >
-              My Profile
-              <span className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-in-out w-0 group-hover:w-full bg-secondary"></span>
-            </NavLink>
-          </li>
-        </ul>
+        ))}
+      </ul>
 
-        <div className="flex gap-2 sm:gap-3">
-          {/* navbar theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-base-200 transition-all duration-300"
-            aria-label="Toggle Theme"
-          >
-            {theme === "skillswapdark" ? (
-              <Sun className="h-6 w-6 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
-            ) : (
-              <Moon className="h-6 w-6 text-slate-600 transition-transform duration-300 rotate-0 hover:rotate-45" />
-            )}
-          </button>
-
-          {loading ? (
-            <ClipLoader color="#365a73" size={30} />
-          ) : user ? (
-            <>
-              <Link onClick={handleSignOut} className="btn">
-                Log Out
-              </Link>
-              <UserAvatarDropdown />
-            </>
+      {/* right side */}
+      <div className="navbar-end flex gap-2 sm:gap-3">
+        {/* navbar theme toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-lg hover:bg-base-200 transition-all duration-300"
+          aria-label="Toggle Theme"
+        >
+          {theme === "skillswapdark" ? (
+            <Sun className="h-6 w-6 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
           ) : (
-            <div className="flex items-center">
-              <NavLink to="/auth/login">
-                <button className="btn">Login</button>
-              </NavLink>
-              <div className="divider text-neutral-400 divider-horizontal">
-                OR
-              </div>
-              <NavLink to="/auth/signup">
-                <button className="btn btn-primary">Signup</button>
-              </NavLink>
-            </div>
+            <Moon className="h-6 w-6 text-slate-600 transition-transform duration-300 rotate-0 hover:rotate-45" />
           )}
-        </div>
+        </button>
+
+        {loading ? (
+          <ClipLoader color="#365a73" size={30} />
+        ) : user ? (
+          <>
+            <Link onClick={handleSignOut} className="btn">
+              Log Out
+            </Link>
+            <UserAvatarDropdown />
+          </>
+        ) : (
+          <div className="flex items-center">
+            <NavLink to="/auth/login">
+              <button className="btn">Login</button>
+            </NavLink>
+            <div className="divider text-neutral-400 divider-horizontal">
+              OR
+            </div>
+            <NavLink to="/auth/signup">
+              <button className="btn btn-primary">Signup</button>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );
