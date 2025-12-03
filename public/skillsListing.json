@@ -149,5 +149,57 @@
     ],
     "image": "https://i.ibb.co.com/1tQwK2cP/photo-1489945052260-4f21c52268b9-ixlib-rb-4-1.jpg",
     "category": "Language"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Basic Drawing & Sketching",
+    "providerName": "Elena Vasquez",
+    "providerEmail": "elena@skillswap.com",
+    "providerImage": "https://i.ibb.co.com/3Cw2p9Q/photo-1529626455594-4ff0802cfb7e-w-400-q-80.jpg",
+    "providerDescription": "Fine arts graduate with 9 years of experience teaching drawing, illustration, and visual fundamentals. Elena has helped over 300 students develop strong foundational art skills through structured, beginner-friendly lessons.",
+    "price": 14,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "A beginner-friendly drawing course designed to teach you how to see and draw like an artist. Through step-by-step exercises, you'll learn how to observe shapes, build forms using basic geometry, understand values and shading, and create realistic sketches. The lessons cover line control, proportion, perspective, light and shadow, and simple composition techniques. You'll work on fun projects like drawing everyday objects, simple portraits, and nature sketches. Each class includes personalized feedback and printable practice sheets. No prior art experience required — just a pencil and curiosity.",
+    "whatYoullLearn": [
+      "Basic line exercises for control and confidence",
+      "Breaking objects into simple shapes (circles, cubes, cylinders)",
+      "Understanding light, shadow, and shading techniques",
+      "One-point and two-point perspective fundamentals",
+      "Drawing realistic textures like wood, cloth, and metal",
+      "Creating simple portrait sketches with proper proportions",
+      "Composing balanced and visually appealing sketches",
+      "Developing observation skills to draw from real life",
+      "Gesture drawing for movement and fluidity",
+      "Building your personal sketching style"
+    ],
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+    "category": "Art"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Personal Finance Basics",
+    "providerName": "Daniel Carter",
+    "providerEmail": "daniel@skillswap.com",
+    "providerImage": "https://i.ibb.co.com/VSm9dRhz/photo-1535713875002-d1d0cf377fde-w-400-q-80.jpg",
+    "providerDescription": "Certified Financial Planner with 11 years of experience helping young adults build smart financial habits. Daniel has worked with over 500 individuals to create budgets, reduce debt, and improve long-term financial stability.",
+    "price": 22,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "A practical and beginner-friendly introduction to personal finance designed to help you make smarter money decisions. These sessions cover budgeting, saving, debt management, smart spending habits, understanding interest, emergency funds, and the basics of investing. Daniel emphasizes simple systems you can apply immediately, even if you've struggled with managing money before. You'll learn how to track your expenses, avoid common financial mistakes, set realistic financial goals, and build long-term financial stability with confidence.",
+    "whatYoullLearn": [
+      "Creating a simple and effective monthly budget",
+      "Understanding good vs bad debt and repayment strategies",
+      "How interest, inflation, and savings accounts work",
+      "Building a realistic emergency fund plan",
+      "Smart spending habits and financial discipline",
+      "How to set and track financial goals",
+      "Basics of investing (stocks, ETFs, mutual funds)",
+      "Avoiding common money traps and scams",
+      "Credit score improvement tips and responsible usage",
+      "Long-term strategies for financial independence"
+    ],
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+    "category": "Finance"
   }
 ]
