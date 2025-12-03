@@ -12,6 +12,7 @@ import SkillsDetails from "../pages/SkillDetails/SkillDetails";
 import MyProfile from "../pages/Dashboard/MyProfile";
 import ExploreSkills from "../pages/Explore/ExlploreSkills";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/about-us",
+        path: "/contact",
+        Component: ContactUs,
+      },
+      {
+        path: "/about",
         Component: AboutUs,
       },
     ],
