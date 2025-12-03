@@ -1,5 +1,4 @@
 import { Target } from "lucide-react";
-import React from "react";
 
 const OurStory = () => {
   return (
@@ -33,7 +32,7 @@ const OurStory = () => {
             </div>
           </div>
           <div className="relative" data-aos="fade-left" data-aos-delay="200">
-            <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8">
+            <div className="bg-linear-to-br from-primary/20 to-secondary/20 rounded-3xl p-8">
               <div className="bg-base-100 rounded-2xl p-6 shadow-lg border border-base-300">
                 <Target className="w-12 h-12 text-secondary mb-4" />
                 <h3 className="text-2xl font-bold mb-3">Our Mission</h3>

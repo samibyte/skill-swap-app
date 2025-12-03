@@ -39,12 +39,8 @@ const Navbar = () => {
       route: "/contact",
     },
     {
-      name: "Support",
-      route: "/support",
-    },
-    {
       name: "About Us",
-      route: "/about-us",
+      route: "/about",
     },
   ];
 
@@ -74,8 +70,8 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-36 p-2 shadow"
             >
-              {navLinks.map((item) => (
-                <li className="group hover:cursor-pointer">
+              {navLinks.map((item, i) => (
+                <li key={i} className="group hover:cursor-pointer">
                   <NavLink
                     to={item.route}
                     className={({ isActive }) =>
@@ -100,8 +96,8 @@ const Navbar = () => {
         {/* nav links */}
 
         <ul className="hidden navbar-center gap-4 lg:flex">
-          {navLinks.map((item) => (
-            <li className="group hover:cursor-pointer">
+          {navLinks.map((item, i) => (
+            <li key={i} className="group hover:cursor-pointer">
               <NavLink
                 to={item.route}
                 className={({ isActive }) =>

@@ -4,7 +4,6 @@ import useAOS from "../hooks/useAOS";
 
 const SkillCard = ({ skill }) => {
   useAOS({ duration: 1200, once: true });
-  console.log(skill);
   const {
     skillId,
     skillName,
@@ -26,7 +25,7 @@ const SkillCard = ({ skill }) => {
       className="bg-base-300/30 border border-base-300/20 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden group"
     >
       {/* Image with subtle overlay */}
-      <div className="relative w-full h-48">
+      <div className="relative w-full h-64">
         <img
           src={image}
           alt={skillName}
@@ -36,9 +35,9 @@ const SkillCard = ({ skill }) => {
       </div>
 
       {/* Card content */}
-      <div className="p-6 flex flex-col gap-4 justify-between">
+      <div className="p-2 flex flex-col gap-3 justify-between">
         <div>
-          <h3 className="text-xl font-semibold">{skillName}</h3>
+          <h3 className="text-xl font-semibold line-clamp-1">{skillName}</h3>
           <p className="mb-4 text-secondary">by {providerName}</p>
           <p className="text-sm line-clamp-2 mb-6">{description}</p>
           <div className="flex justify-between items-center">
