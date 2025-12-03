@@ -72,7 +72,7 @@ const ContactUs = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5"></div>
-        <div className="max-w-9/12 mx-auto px-4 py-16 md:py-20 relative z-10">
+        <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4 py-16 md:py-20 relative z-10">
           <div className="text-center" data-aos="fade">
             <h1 className="text-4xl md:text-5xl font-bold poppins-font mb-4">
               Contact <span className="text-secondary">Us</span>
@@ -87,7 +87,7 @@ const ContactUs = () => {
 
       {/* Main Content */}
       <section className="pb-16">
-        <div className="max-w-9/12 mx-auto px-4">
+        <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Contact Info */}
             <div className="lg:col-span-1 space-y-6">
@@ -139,7 +139,7 @@ const ContactUs = () => {
 
       {/* FAQ Section */}
       <section className="py-12 bg-base-200/30">
-        <div className="max-w-9/12 mx-auto px-4">
+        <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
           <div className="text-center mb-10" data-aos="fade">
             <h2 className="text-3xl font-bold poppins-font mb-4">
               Frequently Asked <span className="text-secondary">Questions</span>
@@ -164,7 +164,7 @@ const ContactUs = () => {
 
       {/* Community CTA */}
       <section className="py-16">
-        <div className="max-w-9/12 mx-auto px-4">
+        <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
           <div
             className="bg-linear-to-r from-primary/10 via-primary/5 to-secondary/10 border border-primary/20 rounded-3xl p-8 md:p-12 text-center"
             data-aos="fade"

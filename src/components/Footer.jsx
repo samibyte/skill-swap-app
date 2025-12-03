@@ -4,7 +4,7 @@ import logo from "/logo.png";
 const Footer = () => {
   return (
     <div className=" bg-accent text-neutral-content md:py-10 py-5">
-      <div className="footer justify-between max-w-9/12 mx-auto sm:footer-horizontal">
+      <div className="footer justify-between max-w-11/12 md:max-w-9/12 mx-auto sm:footer-horizontal">
         <aside>
           <img className="w-25" src={logo} alt="" />
           <p className="font-semibold text-2xl text-secondary">Skill Swap</p>

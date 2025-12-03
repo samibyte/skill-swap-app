@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
-      <div className="max-w-9/12 mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="max-w-11/12 md:max-w-11/12 mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="text-center" data-aos="fade-up">
           <h1 className="text-4xl md:text-6xl font-bold poppins-font mb-6">
             About <span className="text-secondary">SkillSwap</span>

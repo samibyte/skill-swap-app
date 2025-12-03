@@ -59,7 +59,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Steps */}
-      <div className="flex flex-col gap-20 max-w-9/12 mx-auto">
+      <div className="flex flex-col gap-20 max-w-11/12 md:max-w-9/12 mx-auto">
         {steps.map((step, index) => (
           <StickyStep key={index} step={step} reverse={index % 2 === 1} />
         ))}

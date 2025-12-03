@@ -3,7 +3,7 @@ import { Target } from "lucide-react";
 const OurStory = () => {
   return (
     <section className="py-16">
-      <div className="max-w-9/12 mx-auto px-4">
+      <div className="max-w-11/12  md:max-w-9/12 mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
             <h2 className="text-3xl md:text-4xl font-bold poppins-font mb-6">

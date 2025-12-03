@@ -23,13 +23,13 @@ const Home = () => {
       {/* hero slider */}
       <section
         data-aos="fade-down"
-        className="max-w-9/12 mx-auto relative drop-shadow-xl my-28"
+        className="max-w-11/12 md:max-w-9/12 mx-auto relative drop-shadow-xl my-28"
       >
         <HeroSlider />
       </section>
 
       {/* popular skills section  */}
-      <section className="max-w-9/12 mx-auto">
+      <section className="max-w-11/12 md:max-w-9/12 mx-auto">
         <PopularSkills skillsData={skillsData} />
       </section>
       <section>

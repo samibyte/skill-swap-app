@@ -42,7 +42,7 @@ const ExploreSkills = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-base-100 to-base-200">
-      <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4 py-8">
+      <div className="max-w-11/12  md:max-w-9/12 mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-10" data-aos="fade">
           <h1 className="text-4xl md:text-5xl font-bold poppins-font mb-4">

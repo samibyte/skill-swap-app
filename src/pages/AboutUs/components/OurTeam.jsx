@@ -38,7 +38,7 @@ const OurTeam = () => {
 
   return (
     <section className="py-16">
-      <div className="max-w-9/12 mx-auto px-4">
+      <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold poppins-font mb-4">
             Meet Our <span className="text-secondary">Team</span>

@@ -34,7 +34,7 @@ const TopRatedProviders = ({ skillsData }) => {
       </h2>
 
       <div
-        className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20 max-w-11/12 xl:max-w-9/12 mx-auto"
+        className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20 max-w-11/12  md:max-w-9/12 mx-auto"
         data-aos="zoom-in-up"
         data-aos-offset="200"
         data-aos-delay="50"

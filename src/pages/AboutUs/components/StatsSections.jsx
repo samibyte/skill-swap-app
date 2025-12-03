@@ -33,7 +33,7 @@ const StatsSections = () => {
 
   return (
     <section className="py-12 bg-base-200/50">
-      <div className="max-w-9/12 mx-auto px-4">
+      <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
           data-aos="fade-up"

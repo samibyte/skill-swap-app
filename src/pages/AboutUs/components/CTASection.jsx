@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const CTASection = () => {
   return (
     <section className="py-16">
-      <div className="max-w-9/12 mx-auto px-4">
+      <div className="max-w-11/12 md:max-w-9/12 mx-auto px-4">
         <div
           className="bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 border border-primary/20 rounded-3xl p-8 md:p-12 text-center"
           data-aos="fade-up"

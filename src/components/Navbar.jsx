@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-base-100/96 backdrop-blur-lg border border-base-200 shadow-sm">
-      <div className="navbar px-0 py-4 max-w-9/12 mx-auto">
+      <div className="navbar px-0 py-4 max-w-11/12 md:max-w-9/12 mx-auto">
         {/* Left side */}
         <div className="navbar-start">
           <div className="dropdown">
